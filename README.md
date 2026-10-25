@@ -55,4 +55,4 @@ npm run preview       # 완성된 빌드 미리보기 (4173)
 
 SNS 주소는 제공된 참고 페이지에서 확인한 값입니다. 소개 문구와 이미지/디자인은 수정 가능한 초기 샘플입니다. 실제 배포 전에 운영할 계정과 콘텐츠에 맞게 검토하세요.
 
-분석 도구는 연결하지 않은 상태입니다. GitHub 원격 저장소와 실제 Pages 배포는 별도로 설정해야 합니다.
+분석 도구는 연결하지 않은 상태입니다. GitHub 원격은 `onari-0/linkhub`로 연결되어 있습니다. 첫 Actions 실행은 Pages 사이트 조회 404로 실패했으므로, 저장소 관리자 계정에서 Settings → Pages → Source를 **GitHub Actions**로 설정하고 재실행해야 합니다. 예상 공유 주소는 `https://onari-0.github.io/linkhub/`이며 아직 공개 페이지가 확인되지 않았습니다. 원인과 남은 절차는 [배포 가이드](docs/DEPLOYMENT.md)를 참고하세요.

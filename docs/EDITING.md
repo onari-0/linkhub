@@ -17,7 +17,7 @@
 프로젝트 폴더에서 실행한다. 이미 npm run dev 서버가 켜져 있으면 같은 서버의 편집 주소를 열면 된다.
 
 ```sh
-cd /Users/bright/Desktop/link-hub
+cd /Users/bright/Desktop/work/linkhub
 npm run editor
 ```
 
@@ -190,3 +190,13 @@ npm test -- tests/products.test.tsx
 수정 후 `npm run check`, `npm run build`, `npm run verify:build`를 실행한다. GitHub Pages는 빌드와 배포가 완료되어야 공개 페이지에 반영된다. language는 문서 언어이며 UI를 자동 번역하지 않는다.
 
 최초 배포의 저장소 연결·Pages 설정·공개 주소 확인은 [배포 가이드](DEPLOYMENT.md)의 체크리스트를 따른다. 프로필·SNS·SEO·이미지의 운영 값을 확인하고, 공유 이미지 원본을 바꾼 경우 생성한 출력 파일도 함께 커밋한다. 상품 목록이 비어 있으면 배포 후에도 상품 영역은 표시하지 않는다.
+
+현재 저장소는 `onari-0/linkhub`이며 기본 Pages 주소는 `https://onari-0.github.io/linkhub/`다. 저장소 경로는 `/linkhub/`이므로 `/link-hub/` 예시와 구분한다. `content/site.json`에 공개 주소 필드를 추가할 필요는 없으며, 배포 시 Pages가 반환하는 URL과 경로를 사용한다. 로컬 확인 예시는 다음과 같다.
+
+```sh
+BASE_PATH=/linkhub/ SITE_URL=https://onari-0.github.io/linkhub/ npm run build
+BASE_PATH=/linkhub/ SITE_URL=https://onari-0.github.io/linkhub/ npm run verify:build
+BASE_PATH=/linkhub/ npm run preview
+```
+
+`Read the actual Pages URL`에서 `Get Pages site failed`와 `Not Found`가 발생하면 저장소 관리자가 Settings → Pages → Source를 **GitHub Actions**로 설정한 뒤 배포를 다시 실행한다. JSON 편집이나 액션의 SHA를 버전 태그로 바꾸는 것만으로 Pages가 활성화되지는 않는다. 배포 성공 후 출력된 `page_url`에서 화면·이미지·공유 주소를 확인한 다음 외부에 공유한다.

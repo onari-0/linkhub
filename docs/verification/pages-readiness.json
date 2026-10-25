@@ -1,23 +1,26 @@
 {
-  "checkedAt": "2026-10-25T08:42:23.309Z",
-  "project": "/Users/bright/Desktop/link-hub",
-  "conclusion": "Local deployment preparation passed; GitHub repository setup and real Pages execution remain unverified.",
+  "checkedAt": "2026-10-25T14:03:43.359193+00:00",
+  "project": "/Users/bright/Desktop/work/linkhub",
+  "conclusion": "Local checks, workflow lint, three deployment paths and HTTP artifact checks passed. The real Actions run failed because GitHub Pages is not enabled (has_pages=false). Administrator setup and a successful public deployment remain required.",
   "environment": {
     "node": "v24.18.0",
     "npm": "11.16.0",
     "localOs": "darwin",
-    "linuxRunnerExecuted": false
+    "linuxRunnerExecuted": true,
+    "linuxRunnerScope": "Observed the supplied ubuntu-latest run: npm ci/check succeeded; production build and deployment were skipped. Updated workflows have not run remotely.",
+    "temporaryCopy": "/private/tmp/linkhub-pages-review-3aeimt2o"
   },
   "dependencies": {
-    "npmCi": "passed",
-    "auditVulnerabilities": 0,
+    "npmCi": "Passed in supplied GitHub Actions run; local review reused installed dependencies without reinstalling.",
+    "auditVulnerabilities": "Historical previous local audit: 0; not re-audited in this review.",
     "packageLockSha256": "6c555ba452be44f2edf95177bab7f1a3b72e1f60524477410df4a26ece368baf",
     "linuxX64OptionalDependencies": [
       "@img/sharp-linux-x64",
       "@img/sharp-libvips-linux-x64",
       "@esbuild/linux-x64",
       "@rolldown/binding-linux-x64-gnu"
-    ]
+    ],
+    "packageLockUnchanged": true
   },
   "checks": {
     "contentAndImages": "passed",
@@ -34,38 +37,50 @@
       ],
       "result": "passed"
     },
-    "pinnedActions": [
+    "actions": [
       {
         "action": "actions/checkout",
-        "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
-        "status": 200,
-        "runtime": "node24"
+        "version": "v7",
+        "tagStatus": 200,
+        "resolvedCommit": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "runtime": "node24",
+        "source": "https://raw.githubusercontent.com/actions/checkout/v7/action.yml"
       },
       {
         "action": "actions/setup-node",
-        "sha": "820762786026740c76f36085b0efc47a31fe5020",
-        "status": 200,
-        "runtime": "node24"
+        "version": "v7",
+        "tagStatus": 200,
+        "resolvedCommit": "949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "runtime": "node24",
+        "source": "https://raw.githubusercontent.com/actions/setup-node/v7/action.yml"
       },
       {
         "action": "actions/configure-pages",
-        "sha": "45bfe0192ca1faeb007ade9deae92b16b8254a0d",
-        "status": 200,
-        "runtime": "node24"
+        "version": "v6",
+        "tagStatus": 200,
+        "resolvedCommit": "45bfe0192ca1faeb007ade9deae92b16b8254a0d",
+        "runtime": "node24",
+        "source": "https://raw.githubusercontent.com/actions/configure-pages/v6/action.yml"
       },
       {
         "action": "actions/upload-pages-artifact",
-        "sha": "fc324d3547104276b827a68afc52ff2a11cc49c9",
-        "status": 200,
-        "runtime": "composite"
+        "version": "v5",
+        "tagStatus": 200,
+        "resolvedCommit": "fc324d3547104276b827a68afc52ff2a11cc49c9",
+        "runtime": "composite",
+        "source": "https://raw.githubusercontent.com/actions/upload-pages-artifact/v5/action.yml"
       },
       {
         "action": "actions/deploy-pages",
-        "sha": "368f82528645a54fb793d4d04e342629a3f51346",
-        "status": 200,
-        "runtime": "node24"
+        "version": "v5",
+        "tagStatus": 200,
+        "resolvedCommit": "368f82528645a54fb793d4d04e342629a3f51346",
+        "runtime": "node24",
+        "source": "https://raw.githubusercontent.com/actions/deploy-pages/v5/action.yml"
       }
-    ]
+    ],
+    "contentFilesUnchanged": true,
+    "checkExecution": "npm run check passed in isolated temporary copy; 7 test files and 52 tests."
   },
   "builds": [
     {
@@ -81,22 +96,21 @@
       "verifyBuild": "passed"
     },
     {
-      "base": "/",
-      "siteUrl": null,
+      "base": "/linkhub/",
+      "siteUrl": "https://onari-0.github.io/linkhub/",
       "build": "passed",
-      "verifyBuild": "passed",
-      "finalDist": true
+      "verifyBuild": "passed"
     }
   ],
   "artifact": {
     "files": [
       {
-        "path": "assets/index-BMtFXb8C.js",
-        "bytes": 236562
+        "path": "assets/index-BNnSssR5.js",
+        "bytes": 236492
       },
       {
-        "path": "assets/index-DrRMeUq-.css",
-        "bytes": 11655
+        "path": "assets/index-iCd7hDfH.css",
+        "bytes": 11603
       },
       {
         "path": "favicon.svg",
@@ -104,7 +118,7 @@
       },
       {
         "path": "index.html",
-        "bytes": 1553
+        "bytes": 1790
       },
       {
         "path": "media/avatar.svg",
@@ -119,76 +133,141 @@
         "bytes": 87628
       }
     ],
-    "totalBytes": 341044,
-    "symlinks": 0,
-    "hardLinks": 0,
-    "fixtureIdsFound": 0,
-    "localAbsolutePathsFound": 0,
+    "totalBytes": 341159,
     "httpSmoke": [
       {
-        "path": "/assets/index-DrRMeUq-.css",
+        "path": "/linkhub/assets/index-BNnSssR5.js",
         "status": 200,
-        "bytes": 11655,
+        "bytes": 236492,
+        "mime": "text/javascript"
+      },
+      {
+        "path": "/linkhub/assets/index-iCd7hDfH.css",
+        "status": 200,
+        "bytes": 11603,
         "mime": "text/css"
       },
       {
-        "path": "/favicon.svg",
+        "path": "/linkhub/favicon.svg",
         "status": 200,
         "bytes": 292,
         "mime": "image/svg+xml"
       },
       {
-        "path": "/media/avatar.svg",
+        "path": "/linkhub/",
+        "status": 200,
+        "bytes": 1790,
+        "mime": "text/html"
+      },
+      {
+        "path": "/linkhub/media/avatar.svg",
         "status": 200,
         "bytes": 819,
         "mime": "image/svg+xml"
       },
       {
-        "path": "/media/featured.svg",
+        "path": "/linkhub/media/featured.svg",
         "status": 200,
         "bytes": 2535,
         "mime": "image/svg+xml"
       },
       {
-        "path": "/media/og-image.png",
+        "path": "/linkhub/media/og-image.png",
         "status": 200,
         "bytes": 87628,
         "mime": "image/png"
+      },
+      {
+        "path": "/linkhub/__editor/",
+        "status": 404
+      },
+      {
+        "path": "/linkhub/__editor/api/settings",
+        "status": 404
+      },
+      {
+        "path": "/linkhub/__editor/preview",
+        "status": 404
+      },
+      {
+        "path": "/linkhub/editor/main.tsx",
+        "status": 404
       }
     ],
-    "smokeServerClosed": true,
-    "httpSmokeNote": "Original pre-editor root smoke record; current subpath production checks are in localEditorVerification."
+    "metadata": {
+      "canonical": "https://onari-0.github.io/linkhub/",
+      "ogImage": "https://onari-0.github.io/linkhub/media/og-image.png"
+    },
+    "serverClosed": true,
+    "scope": "Temporary production build at /linkhub/; workspace dist was left unchanged."
   },
   "git": {
-    "initialized": false,
-    "remoteConfigured": false,
-    "pushed": false
+    "initialized": true,
+    "remoteConfigured": true,
+    "origin": "https://github.com/onari-0/linkhub.git",
+    "branch": "main",
+    "head": "62122a93b2eb9cc0d0d3d065d61451a9e904f0f9",
+    "pushed": true,
+    "writesPerformedInReview": false,
+    "trackedGeneratedFiles": {
+      "node_modules": 9415,
+      "dist": 7
+    },
+    "cleanupPerformed": false
   },
   "github": {
     "settingsInspected": false,
-    "workflowExecuted": false,
+    "settingsAccess": "Current browser account: You do not have access to repository options; Pages settings returns 404.",
+    "repositoryPublic": true,
+    "defaultBranch": "main",
+    "hasPages": false,
+    "repositoryApi": "https://api.github.com/repos/onari-0/linkhub",
+    "pagesApiStatus": 404,
+    "workflowExecuted": true,
+    "updatedWorkflowsExecuted": false,
+    "observedRun": {
+      "runId": 40181686422,
+      "jobId": 121133892697,
+      "url": "https://github.com/onari-0/linkhub/actions/runs/40181686422/job/121133892697",
+      "conclusion": "failure",
+      "npmCi": "success",
+      "npmCheck": "success",
+      "failedStep": "Read the actual Pages URL",
+      "error": "Get Pages site failed. Not Found",
+      "productionBuild": "skipped",
+      "artifactUpload": "skipped",
+      "deployment": "skipped"
+    },
+    "publicUrl": "https://onari-0.github.io/linkhub/",
+    "publicUrlStatus": 404,
     "publicUrlVerified": false,
+    "remoteMutationsPerformed": false,
     "remaining": [
-      "Create and connect repository; push main",
-      "Enable Pages Source: GitHub Actions; allow Actions and main environment deployments",
-      "Run deployment workflow; verify public page, assets and metadata"
+      "Repository administrator: enable Pages and select Source=GitHub Actions.",
+      "Push reviewed workflow changes to main or manually dispatch after they are present on main.",
+      "Confirm build and deploy success, then check the real page_url, assets, canonical, OG image, links and share UI before external sharing.",
+      "Clean up existing tracked node_modules/dist in a separate commit while preserving local files."
     ]
   },
   "content": {
     "productItems": 0,
     "productSection": "hidden",
     "profileCopyAndArtwork": "Editable initial content; review before release",
-    "analytics": "inactive"
+    "analytics": "inactive",
+    "filesUnchangedSha256": {
+      "content/site.json": "10e6df1cb3fe4cf70738f2b5436455ee5b71c40732b8a90e488c61509ad02a42",
+      "content/footer.json": "81b283eddfa38f1ef798e3ad8d32646d1946049aaa41b8073c7180080d160c18",
+      "content/links.json": "84e6ac6b22f7d3fd87b3cb0308e4c076aa2563a966a0655f5b62bc59eea8c88d",
+      "content/products.json": "641a8e14f7f9d0ee4d909cb96edf05ec6f8906195434247277fa5d6359c3f0ee",
+      "content/profile.json": "7b27ba3180f8fed93dced751a59ec76a3e7d902dd5e456f1f660763aeb368041"
+    },
+    "productionDestinationsManuallyVerified": false
   },
   "servers": {
-    "developmentAndPreview": "stopped",
-    "portsChecked": [
-      5173,
-      5175,
-      4173
-    ]
+    "reviewPreviewServerClosed": true,
+    "userServers": "Not stopped or reconfigured."
   },
-  "updatedAt": "2026-10-25T09:12:17.324857+00:00",
+  "updatedAt": "2026-10-25T14:03:43.359193+00:00",
   "localEditorVerification": {
     "record": "editor-qa.json",
     "buildExclusion": "passed",
@@ -214,5 +293,10 @@
         "status": 404
       }
     ]
-  }
+  },
+  "notes": [
+    "No npm dependency, application UI, content contract or schema change.",
+    "Major version action tags are mutable; resolved commits record the lookup time only.",
+    "Historical editor and product browser checks are retained in their separate verification records."
+  ]
 }

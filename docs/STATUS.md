@@ -1,6 +1,16 @@
 # 현재 상태
 
-2026-10-25 기준. `/Users/bright/Desktop/link-hub`의 편집 구조·상품 섹션·로컬 편집기 구현과 GitHub Pages 배포 전 로컬 점검 완료.
+2026-10-25 기준. 현재 프로젝트 경로는 `/Users/bright/Desktop/work/linkhub`이며 GitHub `onari-0/linkhub`의 main에 초기 코드가 올라가 있다. 첫 Actions 실패 원인을 확인하고 워크플로 버전 표기와 배포 문서를 수정했다. 공개 배포는 아직 완료되지 않았다.
+
+## Actions 실패 검토
+
+[실행 40181686422](https://github.com/onari-0/linkhub/actions/runs/40181686422/job/121133892697)는 Ubuntu에서 npm ci와 npm run check까지 성공하고, `Read the actual Pages URL`에서 Pages 사이트 조회 404로 실패했다. production 빌드·업로드·배포는 실행되지 않았다. 공개 저장소 API의 `has_pages: false`로 Pages 미활성화를 확인했고 예상 주소 `https://onari-0.github.io/linkhub/`도 404다.
+
+현재 브라우저 계정에는 저장소 설정 관리 권한이 없다. 저장소 관리자가 Settings → Pages → Source를 GitHub Actions로 설정한 뒤 변경사항을 main에 반영하고 배포를 다시 실행해야 한다. 이번 작업은 로컬 수정·검토이며 커밋·push·원격 설정 변경·재배포는 수행하지 않았다.
+
+두 워크플로의 액션 참조는 `checkout@v7`, `setup-node@v7`, `configure-pages@v6`, `upload-pages-artifact@v5`, `deploy-pages@v5`로 바꿨다. 다섯 태그의 존재와 Node 24/composite 런타임을 공식 API와 action.yml에서 확인했다. 액션 표기 변경은 Pages 미활성화와 별개의 개선이다.
+
+추가로 node_modules 9,415개와 dist 7개 파일의 기존 Git 추적을 확인했다. 로컬 파일을 유지하면서 추적만 해제하는 절차, 정확한 `/linkhub/` 경로, 배포 후 외부 공유 완료 조건은 [배포 가이드](DEPLOYMENT.md)에 정리했다. 운영 JSON 다섯 파일과 사용자 변경은 보존했다.
 
 AGENTS.md에 기능·설정 구조 변경 시 같은 작업에서 docs/EDITING.md를 반드시 갱신하고 이를 완료 조건에 포함하도록 명시했다. 작업 전 읽을 문서에도 편집 가이드를 추가했다.
 
@@ -46,11 +56,12 @@ AGENTS.md에 기능·설정 구조 변경 시 같은 작업에서 docs/EDITING.m
 | /link-hub/ 빌드와 산출물 검사 | 통과 |
 | npm ci 재설치 / 의존성 감사 | 성공 / 취약점 0건 |
 | CI·배포 워크플로 정적 검사 | actionlint 1.7.12 통과 |
-| SHA로 고정한 공식 액션 5개 | 해당 커밋의 action.yml 존재 확인 |
-| Linux x64 네이티브 의존성 | lockfile에 포함, Linux 실행 자체는 미수행 |
+| 버전 태그를 사용하는 공식 액션 5개 | 태그 API와 해당 action.yml 존재 확인 |
+| 실제 Ubuntu Actions 실행 | npm ci·check 성공, Pages 조회 실패로 production 빌드 생략 |
 | 최종 산출물 HTTP 응답 | 7개 파일의 200·MIME·바이트 수 확인 |
 | 배포 아티팩트 | 약 341KB, 심볼릭/하드 링크 없음 |
-| 실제 GitHub Actions 실행·공개 URL | GitHub 연결 전으로 미확인 |
+| 실제 GitHub Pages 공개 URL | Pages 미활성화 확인, 예상 주소 404 |
+| 실제 /linkhub/ 경로의 로컬 빌드·메타데이터 | 임시 사본에서 통과 |
 | 편집 초안 미리보기 / 로컬 파일 저장 | 자동 테스트와 별도 사본 브라우저에서 확인 |
 | 잘못된 설정·이미지·중복 ID 저장 거부 | 원본 다섯 파일 보존 확인 |
 | 폼/JSON/영역 전환 | 초안 유지 확인 |
@@ -76,7 +87,7 @@ AGENTS.md에 기능·설정 구조 변경 시 같은 작업에서 docs/EDITING.m
 
 손상된 이미지/확장자 불일치, 변경한 공유 이미지 경로·크기·포맷 생성, 영역별 독립 편집/오류 파일 위치, 목적지 참조/ID 중복, n 경계와 검색 상태 변경 등은 자동 테스트에 포함했다. 이전 화면·긴 문구 브라우저 검증은 프로젝트 밖 사본에서 수행했다. 상품 픽스처의 스키마·검색·초기화 검증은 테스트 환경에서 수행한다.
 
-기본 클라이언트 번들은 약 236.6KB, gzip 약 74.5KB이며 CSS는 약 11.7KB다. 편집기 의존성은 공개 번들에 포함하지 않는다. 최종 dist는 루트 경로와 공개 URL 미설정 상태로 만들었다. 예시 사본의 canonical 테스트 도메인은 실제 배포 주소가 아니다.
+기본 클라이언트 번들은 약 236.5KB, gzip 약 74.5KB이며 CSS는 약 11.6KB다. 편집기 의존성은 공개 번들에 포함하지 않는다. 이번 검토는 프로젝트 밖 임시 사본에서 check(7개 파일·52개 테스트), 루트·/link-hub/·실제 /linkhub/ 빌드와 산출물 검사를 통과했다. 실제 Pages URL을 넣은 canonical과 OG 이미지 절대 주소를 검증했다. 작업 폴더의 기존 dist와 운영 JSON은 덮어쓰지 않았다. 예시 도메인은 실제 배포 주소가 아니다.
 
 - [상품 검색 예시 화면](screenshots/products-search.png)
 - [상품 데스크톱 예시 화면](screenshots/products-desktop.png)
@@ -92,12 +103,13 @@ AGENTS.md에 기능·설정 구조 변경 시 같은 작업에서 docs/EDITING.m
 
 Homebrew Node 24.18.0과 npm/npx 11.16.0을 사용한다. 새 의존성은 추가하지 않았다. 직전 npm ci 감사에서 취약점은 0건이었다. 이번 수정 전부터 사용자가 실행한 개발 서버(5173)는 유지했고, 이번 작업에서 띄운 검증용 서버는 종료했다.
 
-Git은 초기화하지 않은 상태를 유지한다. GitHub 원격 연결·커밋·푸시·실제 Pages 배포는 하지 않았다. 로컬 코드·빌드·워크플로 정적 검사는 통과했으며 배포 가이드에 최초 설정과 배포 후 확인 순서를 보강했다. GitHub의 계정 플랜·Actions 정책·Pages Source·환경 제한은 아직 확인하지 않았고 공개 배포와 실제 URL 검증은 후속 작업이다. GA/Amplitude는 연결 지점만 있고 데이터 전송은 비활성이다. 검색어는 수집하지 않는다.
+Git 초기화·origin 연결·main push는 사용자가 완료한 상태이며 이를 재초기화하거나 원격에 쓰지 않았다. 이번 작업의 로컬 코드·빌드·워크플로 정적 검사는 통과했다. 공개 저장소임을 확인했으며 Pages 활성화와 배포 재실행이 남았다. Actions 정책·환경 보호 규칙은 관리자 계정에서 필요 시 확인한다. GA/Amplitude는 연결 지점만 있고 데이터 전송은 비활성이다. 검색어는 수집하지 않는다.
 
 OS 네이티브 공유 시트의 실제 외부 전송은 수행하지 않았다. 공유 성공·취소·폴백은 단위 테스트에 포함되어 있다.
 
 ## 후속 작업
 
 - 실제 상품과 브랜드 리소스 입력
-- GitHub 연결 및 Pages 첫 배포·실제 주소 검증
+- 관리자 계정에서 Pages Source=GitHub Actions 설정 후 변경 반영·재배포·실제 공개 주소 검증
+- node_modules·dist의 기존 Git 추적 정리 (로컬 파일은 유지)
 - 필요할 때 GA/Amplitude 연결
