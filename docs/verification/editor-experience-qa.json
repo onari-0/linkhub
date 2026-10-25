@@ -1,0 +1,334 @@
+{
+  "checkedAt": "2026-10-25T15:09:18.442921+00:00",
+  "scope": "Independent editor scrolling, larger preview, shared segmented controls, optional background image, and a temporary palette review.",
+  "preserved": {
+    "currentUserContentSha256": {
+      "site.json": "83c02b280b9c30e0efa372469526f892fb4e7aef3f8f795f8e681b2453c30b5e",
+      "footer.json": "b218ebe2a049faf24ed390136e744188353a97876b873a4d9917a105a405c44a",
+      "links.json": "bdacc781e08f2bd20c746db91647479ea900e6c9fef8fd5ee88f9a151d01b217",
+      "products.json": "641a8e14f7f9d0ee4d909cb96edf05ec6f8906195434247277fa5d6359c3f0ee",
+      "profile.json": "fe1d9f269467f55076fa4e2763ab51cd540b85c19de96a7e37ef2f1e7cbd38f2"
+    },
+    "currentBackgroundImage": "media/onari-backgroung.jpeg",
+    "operationalPaletteChangedByReview": false,
+    "userPort5173": "left running",
+    "workspaceDist": "not overwritten"
+  },
+  "checks": {
+    "npmCheck": "passed",
+    "testFiles": 7,
+    "testsPassed": 57,
+    "jsonSchemasRegenerated": true,
+    "imageSchemaValidation": "passed",
+    "invalidBackground": "save disabled and last valid preview retained",
+    "draftDoesNotWrite": "confirmed before save in isolated copy",
+    "formJsonBooleanAndSave": "confirmed in browser and tests",
+    "conflictsAndSessionSecurity": "existing real HTTP and UI regression tests passed",
+    "staticPreviewEditor404": "passed",
+    "editorBuildExclusion": "passed"
+  },
+  "editorBrowser": {
+    "desktopIndependentScroll": {
+      "viewport": [
+        1440,
+        900
+      ],
+      "leftScrollTopAfterLeftWheel": 900,
+      "pageScrollTop": 0,
+      "rightScrollTopAfterRightWheel": 296,
+      "leftPositionUnchangedAfterRightWheel": true
+    },
+    "previewHeights": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "beforeCompactTools": 421,
+        "afterCompactTools": 618
+      },
+      {
+        "viewport": [
+          1280,
+          800
+        ],
+        "height": 518
+      },
+      {
+        "viewport": [
+          900,
+          600
+        ],
+        "height": 318
+      }
+    ],
+    "mobile": [
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "documentWidth": 390,
+        "previewHeight": 680
+      },
+      {
+        "viewport": [
+          320,
+          740
+        ],
+        "documentWidth": 320,
+        "previewHeight": 680
+      }
+    ],
+    "backgroundPreview": {
+      "path": "/linkhub/__editor/assets/media/featured.svg",
+      "position": "fixed",
+      "size": "cover"
+    },
+    "sharedControls": [
+      "form/json",
+      "mobile/wide",
+      "on/off"
+    ],
+    "nativeCheckboxInputs": 0,
+    "keyboardSelection": "Space confirmed; unit tests cover keyboard and disabled fieldset."
+  },
+  "builds": [
+    {
+      "variant": "recommended-palette",
+      "base": "/linkhub/",
+      "siteUrl": "https://onari-0.github.io/linkhub/",
+      "build": "passed",
+      "verifyBuild": "passed",
+      "backgroundDeployed": true
+    },
+    {
+      "variant": "current-user-colors",
+      "base": "/",
+      "siteUrl": "https://onari-0.github.io/",
+      "build": "passed",
+      "verifyBuild": "passed",
+      "backgroundDeployed": true
+    },
+    {
+      "variant": "current-user-colors",
+      "base": "/link-hub/",
+      "siteUrl": "https://example.github.io/link-hub/",
+      "build": "passed",
+      "verifyBuild": "passed",
+      "backgroundDeployed": true
+    },
+    {
+      "variant": "current-user-colors",
+      "base": "/linkhub/",
+      "siteUrl": "https://onari-0.github.io/linkhub/",
+      "build": "passed",
+      "verifyBuild": "passed",
+      "backgroundDeployed": true
+    },
+    {
+      "variant": "background-omitted",
+      "base": "/linkhub/",
+      "siteUrl": "https://onari-0.github.io/linkhub/",
+      "build": "passed",
+      "verifyBuild": "passed",
+      "backgroundDeployed": false
+    }
+  ],
+  "staticHttp": {
+    "files": [
+      {
+        "path": "assets/index-BvFxv7Yl.js",
+        "bytes": 236583
+      },
+      {
+        "path": "assets/index-LsmT2pM-.css",
+        "bytes": 11790
+      },
+      {
+        "path": "favicon.svg",
+        "bytes": 292
+      },
+      {
+        "path": "index.html",
+        "bytes": 1803
+      },
+      {
+        "path": "media/onari-avatar.jpg",
+        "bytes": 27054
+      },
+      {
+        "path": "media/onari-backgroung.jpeg",
+        "bytes": 56122
+      },
+      {
+        "path": "media/onari-instagram.jpg",
+        "bytes": 38473
+      },
+      {
+        "path": "media/onari-og.jpg",
+        "bytes": 63817
+      },
+      {
+        "path": "media/onari-tiktok.jpg",
+        "bytes": 4373
+      },
+      {
+        "path": "media/onari-youtube.jpg",
+        "bytes": 4076
+      }
+    ],
+    "checks": [
+      {
+        "path": "/linkhub/assets/index-BvFxv7Yl.js",
+        "status": 200,
+        "mime": "text/javascript"
+      },
+      {
+        "path": "/linkhub/assets/index-LsmT2pM-.css",
+        "status": 200,
+        "mime": "text/css"
+      },
+      {
+        "path": "/linkhub/favicon.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "path": "/linkhub/",
+        "status": 200,
+        "mime": "text/html"
+      },
+      {
+        "path": "/linkhub/media/onari-avatar.jpg",
+        "status": 200,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/media/onari-backgroung.jpeg",
+        "status": 200,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/media/onari-instagram.jpg",
+        "status": 200,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/media/onari-og.jpg",
+        "status": 200,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/media/onari-tiktok.jpg",
+        "status": 200,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/media/onari-youtube.jpg",
+        "status": 200,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/__editor/",
+        "status": 404
+      },
+      {
+        "path": "/linkhub/__editor/api/settings",
+        "status": 404
+      },
+      {
+        "path": "/linkhub/editor/main.tsx",
+        "status": 404
+      }
+    ],
+    "totalBytes": 444383
+  },
+  "paletteReview": {
+    "currentBackground": "media/onari-backgroung.jpeg",
+    "recommendedTheme": {
+      "preset": "paper",
+      "colors": {
+        "background": "#F7FAFC",
+        "surface": "#FFFFFF",
+        "text": "#33424D",
+        "muted": "#61717C",
+        "accent": "#527A93",
+        "accentSoft": "#EAF2F7",
+        "border": "#DCE6EC",
+        "badgeBackground": "#F6EAF0",
+        "badgeText": "#875C72",
+        "shadow": "#8197A6"
+      },
+      "platforms": {
+        "tiktok": {
+          "background": "#F6EAF0",
+          "foreground": "#875C72"
+        },
+        "youtube": {
+          "background": "#EAF2F7",
+          "foreground": "#527A93"
+        }
+      },
+      "typography": {
+        "name": 24,
+        "title": 16,
+        "body": 16,
+        "small": 12
+      },
+      "spacing": {
+        "cardGap": 14,
+        "sectionGap": 36,
+        "cardPadding": 20
+      },
+      "featuredRatio": 1.7777777777777777,
+      "cardRadius": 24,
+      "contentWidth": 540,
+      "font": "system"
+    },
+    "contrast": {
+      "text": {
+        "onSurface": 10.36,
+        "onFallback": 9.88
+      },
+      "muted": {
+        "onSurface": 5.05,
+        "onFallback": 4.81
+      },
+      "accent": {
+        "onSurface": 4.6,
+        "onFallback": 4.39
+      },
+      "badge": 4.72,
+      "tiktok": 4.72,
+      "youtube": 4.06
+    },
+    "screenshots": [
+      "docs/screenshots/palette-white-blue.png"
+    ],
+    "productionApplied": false,
+    "viewports": [
+      {
+        "width": 390,
+        "documentWidth": 390
+      },
+      {
+        "width": 1280,
+        "documentWidth": 1280
+      }
+    ]
+  },
+  "screenshots": [
+    "docs/screenshots/editor-independent-scroll.png",
+    "docs/screenshots/palette-white-blue.png"
+  ],
+  "servers": {
+    "temporaryServersStopped": true,
+    "userDevelopmentServerUnchanged": true
+  },
+  "publishing": {
+    "commit": false,
+    "push": false,
+    "deploy": false
+  }
+}

@@ -9,6 +9,7 @@ export function mediaReferences(site: Site, includeGenerationSource = true): Med
   const refs: MediaReference[] = [{ field: 'seo.image', path: site.seo.image, role: 'og' }, { field: 'resources.favicon', path: site.resources.favicon, role: 'favicon' }];
   if (site.profile.avatar) refs.push({ field: 'profile.avatar', path: site.profile.avatar, role: 'image' });
   if (site.resources.logo) refs.push({ field: 'resources.logo', path: site.resources.logo, role: 'image' });
+  if (site.resources.backgroundImage) refs.push({ field: 'resources.backgroundImage', path: site.resources.backgroundImage, role: 'image' });
   if (includeGenerationSource && site.resources.ogGeneration) refs.push({ field: 'resources.ogGeneration.source', path: site.resources.ogGeneration.source, role: 'source' });
   site.links.items.forEach((item, index) => { if (item.enabled && item.image) refs.push({ field: `links.items[${index}].image`, path: item.image, role: 'image' }); });
   site.products.items.forEach((item, index) => { if (item.enabled && item.image) refs.push({ field: `products.items[${index}].image`, path: item.image, role: 'image' }); });

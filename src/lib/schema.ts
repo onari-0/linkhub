@@ -65,6 +65,7 @@ export const profileSchema = z.strictObject({
 });
 export const resourcesSchema = z.strictObject({
   favicon: mediaPath.default('favicon.svg').describe('브라우저 탭 아이콘. public 기준 경로.'), logo: mediaPath.optional().describe('페이지 상단 로고. 생략하면 기본 꽃 아이콘을 표시합니다.'),
+  backgroundImage: mediaPath.optional().describe('선택적인 페이지 배경 이미지. public 기준 경로이며 화면 전체를 중앙 기준 cover로 채웁니다. 스크롤해도 배경은 화면에 고정됩니다. 생략하면 기존 색상·프리셋 배경을 사용합니다.'),
   ogGeneration: z.strictObject({ source: mediaPath.describe('공유 이미지 생성 원본. seo.image 출력 경로와 달라야 합니다.'), width: z.number().int().min(200).max(2400).default(1200).describe('출력 너비(px).'), height: z.number().int().min(200).max(2400).default(630).describe('출력 높이(px).'), fit, position }).optional().describe('npm run media:generate에서 사용합니다. 생략하면 수동 공유 이미지를 사용하며 생성을 건너뜁니다.')
 }).prefault({});
 export const destinationsSchema = z.record(id, destinationSchema).default({}).describe('여러 SNS·카드·상품에서 재사용할 공통 목적지. 각 항목의 destination에 이 객체의 키를 작성합니다.');

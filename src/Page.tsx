@@ -26,6 +26,7 @@ export function Page({ site, theme, assetBase }: { site: Site; theme: Theme; ass
   const links = site.links.items.filter(link => link.enabled);
   const showFooter = site.footer?.enabled && (site.footer.message || site.footer.signature);
   return <div className={`page page--${theme.preset}`} style={variables as CSSProperties}>
+    {site.resources.backgroundImage && <div className="page-background" aria-hidden="true" style={{ backgroundImage: `url("${assetUrl(site.resources.backgroundImage, assetBase)}")` }}/>}
     <a className="skip-link" href="#links">{site.copy.skipLinks}</a>
     <div className="page-content">
       <div className="topbar"><span className="brand-flower" aria-hidden="true">{site.resources.logo ? <img src={assetUrl(site.resources.logo, assetBase)} alt="" width="28" height="28"/> : <Icon name="flower"/>}</span>{site.profile.caption && <span className="topbar-caption">{site.profile.caption}</span>}<ShareButton copy={site.copy} title={site.seo.title}/></div>

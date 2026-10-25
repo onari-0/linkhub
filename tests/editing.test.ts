@@ -52,15 +52,35 @@ describe('편집 입력과 정규화', () => {
 });
 
 describe('실제 이미지와 생성 설정', () => {
+  it('선택 배경 이미지를 같은 자산 검사에 포함하고 누락·경로 이탈을 거부한다', async () => {
+    const root = fixture();
+    try {
+      const path = join(root, 'content/site.json');
+      const input = JSON.parse(readFileSync(path, 'utf8'));
+      input.resources.backgroundImage = 'media/featured.svg';
+      writeFileSync(path, JSON.stringify(input));
+      const content = await loadValidatedContent(root);
+      expect(content.assets).toContainEqual({ field: 'resources.backgroundImage', path: 'media/featured.svg', role: 'image' });
+      input.resources.backgroundImage = 'media/missing-background.jpg';
+      writeFileSync(path, JSON.stringify(input));
+      await expect(loadValidatedContent(root)).rejects.toThrow('content/site.json:resources.backgroundImage: 파일을 찾을 수 없습니다');
+      input.resources.backgroundImage = '../private.jpg';
+      writeFileSync(path, JSON.stringify(input));
+      expect(() => readSettings(root)).toThrow('resources.backgroundImage');
+    } finally { rmSync(root, { recursive: true }); }
+  });
   it('이미지가 아닌 파일을 확장자만 바꿔 넣으면 실패한다', async () => {
     const root = fixture();
-    try { writeFileSync(join(root, 'public/media/og-image.png'), 'not an image'); await expect(loadValidatedContent(root)).rejects.toThrow('이미지를 읽을 수 없습니다'); }
+    try { writeFileSync(join(root, 'public', readSettings(root).site.seo.image), 'not an image'); await expect(loadValidatedContent(root)).rejects.toThrow('이미지를 읽을 수 없습니다'); }
     finally { rmSync(root, { recursive: true }); }
   });
   it('확장자와 실제 형식이 다르면 실패한다', async () => {
     const root = fixture();
     try {
-      await sharp({ create: { width: 10, height: 10, channels: 3, background: '#fff' } }).jpeg().toFile(join(root, 'public/media/og-image.png'));
+      const output = join(root, 'public', readSettings(root).site.seo.image);
+      const image = sharp({ create: { width: 10, height: 10, channels: 3, background: '#fff' } });
+      if (output.endsWith('.png')) await image.jpeg().toFile(output);
+      else await image.png().toFile(output);
       await expect(loadValidatedContent(root)).rejects.toThrow('확장자와 실제 이미지 형식이 다릅니다');
     } finally { rmSync(root, { recursive: true }); }
   });

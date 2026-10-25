@@ -1,0 +1,278 @@
+{
+  "checkedAt": "2026-10-25T14:28:01.064747+00:00",
+  "reference": {
+    "url": "https://linktr.ee/Orina0",
+    "name": "오나리",
+    "bio": "가난한 오타쿠૮₍´˘`ʃƪ₎ა \n#치이카와  #인형뽑기  #말랑이",
+    "imageDownload": "Exact displayed CDN JPEG bytes stored locally; SHA-256 verified.",
+    "assets": [
+      {
+        "file": "public/media/onari-avatar.jpg",
+        "source": "https://ugc.production.linktr.ee/c1ce9acd-6439-4c20-98b1-196125593707_850371935-18109708451222312-1335077912528068728-n.jpeg?io=true&size=avatar-v3_0",
+        "bytes": 27054,
+        "contentType": "image/jpeg",
+        "sha256": "01f92de6a1d9388ba5bfa8804818a1062c0fdd0264a758ab49d8d7a7b9d86432"
+      },
+      {
+        "file": "public/media/onari-instagram.jpg",
+        "source": "https://ugc.production.linktr.ee/dfddc324-7510-4f7a-9f39-56cbd69a6a69_850371935-18109708451222312-1335077912528068728-n.jpeg?io=true&size=thumbnail-feature-v1_0",
+        "bytes": 38473,
+        "contentType": "image/jpeg",
+        "sha256": "58fa85aa70ce35825d3731845d031675f4a0f950766f94008ddd8cfae8fd2043"
+      },
+      {
+        "file": "public/media/onari-tiktok.jpg",
+        "source": "https://ugc.production.linktr.ee/2850f7d7-9ce1-4ec5-be15-464988549ce6_9ba9a1dcc40dbc45ee4acaf454077123-tplv-tiktokx-cropcenter-1080-1080.jpeg?io=true&size=thumbnail-stack_v1_0",
+        "bytes": 4373,
+        "contentType": "image/jpeg",
+        "sha256": "eb0781d50f6c1bed07b081e0ebf07610ca221e2847f1554814a7094574ac30c0"
+      },
+      {
+        "file": "public/media/onari-youtube.jpg",
+        "source": "https://ugc.production.linktr.ee/83b8b63a-5309-4579-a99e-f4b7e2115f91_goZNrfZwdkKtrmtPDYYB3Qm3fFAMPqf5kwKUG8PymbzziCGNzA2lgewC50fXOm2wj5rehSnpzA-s900-c-k-c0x00ffffff-no-r.jpeg?io=true&size=thumbnail-stack_v1_0",
+        "bytes": 4076,
+        "contentType": "image/jpeg",
+        "sha256": "37edf75aaea2597b0e21c59aea079232baea332dcdb6d90d03ee0b9eea6d60e7"
+      }
+    ]
+  },
+  "scope": "Existing content settings and local images; no application component, schema, dependency, workflow or remote publishing changes.",
+  "configuration": {
+    "idsAndArrayOrderPreserved": true,
+    "destinationsPreserved": true,
+    "productListUnchanged": true,
+    "productItems": 0,
+    "footerVisible": false,
+    "captionVisible": false,
+    "extraTagList": false,
+    "socialAndCardTargets": "_blank with noopener noreferrer",
+    "theme": "Existing paper preset and pink theme tokens",
+    "ogImage": "media/onari-og.jpg"
+  },
+  "checks": {
+    "contentAndImages": "passed",
+    "jsonSchemaSync": "passed",
+    "typescript": "passed",
+    "eslint": "passed",
+    "testFiles": 7,
+    "testsPassed": 52,
+    "regressionUpdates": [
+      "Corrupt-image and extension mismatch tests now target the configured seo.image instead of a stale sample PNG.",
+      "Hidden-image and ordered-title render checks tolerate configured new-tab labels."
+    ]
+  },
+  "builds": [
+    {
+      "base": "/",
+      "siteUrl": "https://onari-0.github.io/",
+      "build": "passed",
+      "verifyBuild": "passed"
+    },
+    {
+      "base": "/link-hub/",
+      "siteUrl": "https://example.github.io/link-hub/",
+      "build": "passed",
+      "verifyBuild": "passed"
+    },
+    {
+      "base": "/linkhub/",
+      "siteUrl": "https://onari-0.github.io/linkhub/",
+      "build": "passed",
+      "verifyBuild": "passed"
+    }
+  ],
+  "artifact": {
+    "files": [
+      {
+        "path": "assets/index-BLplUjbM.js",
+        "bytes": 236371
+      },
+      {
+        "path": "assets/index-iCd7hDfH.css",
+        "bytes": 11603
+      },
+      {
+        "path": "favicon.svg",
+        "bytes": 292
+      },
+      {
+        "path": "index.html",
+        "bytes": 1803
+      },
+      {
+        "path": "media/onari-avatar.jpg",
+        "bytes": 27054
+      },
+      {
+        "path": "media/onari-instagram.jpg",
+        "bytes": 38473
+      },
+      {
+        "path": "media/onari-og.jpg",
+        "bytes": 63817
+      },
+      {
+        "path": "media/onari-tiktok.jpg",
+        "bytes": 4373
+      },
+      {
+        "path": "media/onari-youtube.jpg",
+        "bytes": 4076
+      }
+    ],
+    "totalBytes": 387862,
+    "checks": [
+      {
+        "path": "/linkhub/assets/index-BLplUjbM.js",
+        "status": 200,
+        "bytes": 236371,
+        "mime": "text/javascript"
+      },
+      {
+        "path": "/linkhub/assets/index-iCd7hDfH.css",
+        "status": 200,
+        "bytes": 11603,
+        "mime": "text/css"
+      },
+      {
+        "path": "/linkhub/favicon.svg",
+        "status": 200,
+        "bytes": 292,
+        "mime": "image/svg+xml"
+      },
+      {
+        "path": "/linkhub/",
+        "status": 200,
+        "bytes": 1803,
+        "mime": "text/html"
+      },
+      {
+        "path": "/linkhub/media/onari-avatar.jpg",
+        "status": 200,
+        "bytes": 27054,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/media/onari-instagram.jpg",
+        "status": 200,
+        "bytes": 38473,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/media/onari-og.jpg",
+        "status": 200,
+        "bytes": 63817,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/media/onari-tiktok.jpg",
+        "status": 200,
+        "bytes": 4373,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/media/onari-youtube.jpg",
+        "status": 200,
+        "bytes": 4076,
+        "mime": "image/jpeg"
+      },
+      {
+        "path": "/linkhub/__editor/",
+        "status": 404
+      },
+      {
+        "path": "/linkhub/__editor/api/settings",
+        "status": 404
+      },
+      {
+        "path": "/linkhub/editor/main.tsx",
+        "status": 404
+      }
+    ],
+    "canonical": "https://onari-0.github.io/linkhub/",
+    "ogImage": "https://onari-0.github.io/linkhub/media/onari-og.jpg",
+    "unusedSamplesExcluded": true
+  },
+  "browser": {
+    "production": {
+      "base": "/linkhub/",
+      "viewports": [
+        {
+          "width": 1280,
+          "documentWidth": 1280
+        },
+        {
+          "width": 390,
+          "documentWidth": 390
+        },
+        {
+          "width": 320,
+          "documentWidth": 320
+        }
+      ],
+      "allFourImagesLoaded": true,
+      "exactBioAndLineBreaks": true,
+      "socialAndCardUrlsAndNewTabRelations": "passed",
+      "emptyProductSectionHidden": true,
+      "footerHidden": true,
+      "editorAbsent": true,
+      "keyboardShareOpenClose": "passed",
+      "keyboardSkipLinkFocus": "links",
+      "consoleErrors": 0
+    },
+    "fixtureCopy": {
+      "outsideProject": true,
+      "actualProductsSchemaUsed": true,
+      "visibleFivePlusHiddenOne": {
+        "searchVisible": false
+      },
+      "visibleSixPlusHiddenOne": {
+        "searchVisible": true
+      },
+      "searchWord": "문구",
+      "searchResultCount": 1,
+      "noResults": {
+        "cards": 0,
+        "searchRetained": true,
+        "guidanceRetained": true
+      },
+      "keyboardClear": {
+        "cardsRestored": 6,
+        "inputFocused": true
+      },
+      "sponsoredLinkRelations": "sponsored noopener noreferrer",
+      "maxLengthSingleWords": {
+        "profileName": 60,
+        "profileBio": 240,
+        "linkTitle": 80,
+        "productTitle": 100,
+        "productBrand": 60,
+        "productDescription": 240,
+        "viewport": 320,
+        "documentWidth": 320
+      },
+      "fixtureCopyRestored": true,
+      "consoleErrors": 0
+    },
+    "screenshots": [
+      "docs/screenshots/linktree-desktop.png",
+      "docs/screenshots/linktree-mobile.png"
+    ]
+  },
+  "preserved": {
+    "packageLockSha256": "6c555ba452be44f2edf95177bab7f1a3b72e1f60524477410df4a26ece368baf",
+    "productConfigSha256": "641a8e14f7f9d0ee4d909cb96edf05ec6f8906195434247277fa5d6359c3f0ee",
+    "workspaceDist": "Untouched; builds ran in a temporary copy.",
+    "sampleAssets": "Retained for existing tests, excluded from production build."
+  },
+  "servers": {
+    "reviewPreviewAndDevStopped": true,
+    "userServers": "Untouched"
+  },
+  "publishing": {
+    "commitPerformed": false,
+    "pushPerformed": false,
+    "deployPerformed": false,
+    "liveUrlRechecked": false
+  }
+}

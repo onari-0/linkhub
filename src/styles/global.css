@@ -1,4 +1,6 @@
 * { box-sizing: border-box; }
+.page { position: relative; isolation: isolate; }
+.page-background { position: fixed; inset: 0; z-index: -1; background-size: cover; background-position: center; background-repeat: no-repeat; pointer-events: none; }
 html { overflow-wrap: anywhere; }
 body { margin: 0; }
 button, input { font: inherit; }

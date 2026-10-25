@@ -348,6 +348,14 @@
             "media/products/cushion.webp"
           ]
         },
+        "backgroundImage": {
+          "description": "선택적인 페이지 배경 이미지. public 기준 경로이며 화면 전체를 중앙 기준 cover로 채웁니다. 스크롤해도 배경은 화면에 고정됩니다. 생략하면 기존 색상·프리셋 배경을 사용합니다.",
+          "type": "string",
+          "pattern": "^(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_-]+\\.(svg|png|jpe?g|webp|avif)$",
+          "examples": [
+            "media/products/cushion.webp"
+          ]
+        },
         "ogGeneration": {
           "description": "npm run media:generate에서 사용합니다. 생략하면 수동 공유 이미지를 사용하며 생성을 건너뜁니다.",
           "type": "object",

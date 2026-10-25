@@ -1,37 +1,37 @@
 {
-  "title": "나의 작은 연결들",
-  "eyebrow": "LINKS",
+  "title": "Links",
+  "eyebrow": "",
   "emptyMessage": "새로운 소식을 준비하고 있어요. 곧 만나요!",
   "items": [
     {
       "id": "main-instagram",
       "title": "Instagram",
-      "description": "귀여운 순간을 차곡차곡",
-      "label": "취향 기록",
       "variant": "featured",
-      "image": "media/featured.svg",
-      "imageAlt": "별 모양 친구와 작은 소품을 담은 연보라색 일러스트",
+      "image": "media/onari-instagram.jpg",
+      "imageAlt": "오나리 Instagram에 사용하는 캐릭터 이미지",
       "enabled": true,
-      "openInNewTab": false,
-      "destination": "instagram"
+      "openInNewTab": true,
+      "destination": "instagram",
+      "imageFit": "cover",
+      "imagePosition": "center"
     },
     {
       "id": "main-tiktok",
       "title": "TikTok",
-      "description": "짧지만 즐거운 이야기",
       "variant": "compact",
       "enabled": true,
-      "openInNewTab": false,
-      "destination": "tiktok"
+      "openInNewTab": true,
+      "destination": "tiktok",
+      "image": "media/onari-tiktok.jpg"
     },
     {
       "id": "main-youtube",
       "title": "YouTube",
-      "description": "조금 더 오래, 함께 놀아요",
       "variant": "compact",
       "enabled": true,
-      "openInNewTab": false,
-      "destination": "youtube"
+      "openInNewTab": true,
+      "destination": "youtube",
+      "image": "media/onari-youtube.jpg"
     }
   ]
 }

@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { editorBase, request } from './api';
 import { SchemaField } from './SchemaField';
+import { SegmentedControl } from './SegmentedControl';
 import { sections, sectionLabels, formatSettings, parseDrafts, type Section, type Snapshot, type Drafts, type PreviewContent, type Settings } from './model';
 
 type Validation = { signature: string; content?: PreviewContent; error?: string };
 const message = (error: unknown) => error instanceof Error ? error.message : String(error);
+const editorModes = [{ value: 'form', label: '입력 폼' }, { value: 'json', label: 'JSON' }] as const;
+const previewModes = [{ value: 'mobile', label: '모바일' }, { value: 'wide', label: '넓게' }] as const;
 
 export function Editor() {
   const [snapshot, setSnapshot] = useState<Snapshot>();
@@ -82,11 +85,11 @@ export function Editor() {
     {error && <div className="editor-alert" role="alert">{error}</div>}{notice && <p className="editor-notice" role="status">{notice}</p>}
     {!snapshot || !drafts ? <div className="loading-panel">{error ? <button onClick={() => { void load(); }}>다시 연결</button> : '로컬 설정을 읽고 있습니다…'}</div> : <div className="editor-layout">
       <section className="edit-panel" aria-label="콘텐츠 편집"><nav className="section-tabs" aria-label="편집 영역">{sections.map(name => <button key={name} aria-current={section === name ? 'page' : undefined} onClick={() => setSection(name)}>{sectionLabels[name]}{changed.includes(name) && <span className="tab-dot" aria-label="미저장">•</span>}</button>)}</nav>
-        <div className="panel-heading"><div><h2>{sectionLabels[section]}</h2><code>content/{section}.json</code></div><div className="mode-switch" aria-label="편집 방식"><button aria-pressed={mode === 'form'} onClick={() => setMode('form')}>입력 폼</button><button aria-pressed={mode === 'json'} onClick={() => setMode('json')}>JSON</button></div></div>
+        <div className="panel-heading"><div><h2>{sectionLabels[section]}</h2><code>content/{section}.json</code></div><SegmentedControl label="편집 방식" value={mode} options={editorModes} onChange={setMode}/></div>
         <fieldset className="editor-fields" disabled={busy}>{mode === 'json' ? <><label className="json-label" htmlFor="section-json">{section}.json 전체 내용</label><textarea id="section-json" className="json-editor" spellCheck={false} value={drafts[section]} onChange={event => update(event.target.value)}/><button type="button" disabled={!!syntaxError} onClick={() => update(JSON.stringify(value, null, 2))}>JSON 정리</button></> : syntaxError || !value || typeof value !== 'object' || Array.isArray(value) ? <div className="editor-alert">{syntaxError || '영역 설정은 JSON 객체로 작성하세요.'}<button onClick={() => setMode('json')}>JSON 편집 열기</button></div> : <SchemaField schema={snapshot.schemas[section]} value={value} onChange={next => update(JSON.stringify(next, null, 2))} path={section} assets={snapshot.assets}/>}</fieldset>
         <div className="editing-footnote">이미지는 public/에 넣고 경로를 선택하거나 입력하세요. 별표(*)는 필수 항목입니다.</div>
       </section>
-      <aside className="preview-panel" aria-label="페이지 미리보기"><div className="preview-heading"><div><span className="editor-kicker">LIVE PREVIEW</span><h2>방문자에게 보이는 모습</h2></div><div className="mode-switch"><button aria-pressed={!wide} onClick={() => setWide(false)}>모바일</button><button aria-pressed={wide} onClick={() => setWide(true)}>넓게</button></div></div>
+      <aside className="preview-panel" aria-label="페이지 미리보기"><div className="preview-heading"><div><span className="editor-kicker">LIVE PREVIEW</span><h2>방문자에게 보이는 모습</h2></div><SegmentedControl label="미리보기 너비" value={wide ? 'wide' : 'mobile'} options={previewModes} onChange={value => setWide(value === 'wide')}/></div>
         <p className={`validation-state ${validation?.error && !validating ? 'has-error' : ''}`} role="status">{validating ? '초안을 검증하고 있습니다…' : valid ? dirty ? '검증 완료 · 저장 전 초안' : '검증 완료 · 저장된 내용' : '입력 오류 · 최근 정상 미리보기 유지'}</p>
         {validation?.signature === signature && validation.error && <pre className="validation-error" role="alert">{validation.error}</pre>}
         {valid && validation.content!.warnings.length > 0 && <details className="validation-warnings"><summary>확인할 안내 {validation.content!.warnings.length}개</summary><ul>{validation.content!.warnings.map(text => <li key={text}>{text}</li>)}</ul></details>}

@@ -1,48 +1,49 @@
 {
   "language": "ko",
   "seo": {
-    "title": "오나리 | 작은 취향을 모으는 곳",
-    "description": "오나리의 Instagram, TikTok, YouTube를 한곳에서 만나보세요.",
-    "image": "media/og-image.png"
+    "title": "오나리 | Instagram · TikTok · YouTube",
+    "description": "가난한 오타쿠૮₍´˘`ʃƪ₎ა \n#치이카와  #인형뽑기  #말랑이",
+    "image": "media/onari-og.jpg",
+    "imageAlt": "오나리 Instagram에 사용하는 캐릭터 이미지"
   },
   "theme": {
-    "preset": "pastel",
+    "preset": "paper",
     "colors": {
-      "background": "#f4f0f8",
-      "surface": "#fffdfb",
-      "text": "#3e354b",
-      "muted": "#72667c",
-      "accent": "#70549b",
-      "accentSoft": "#eee5f6",
-      "border": "#e6dfea",
-      "badgeBackground": "#fffdfb",
-      "badgeText": "#514160",
-      "shadow": "#493858"
+      "background": "#F7FAFC",
+      "surface": "#FFFFFF",
+      "text": "#33424D",
+      "muted": "#61717C",
+      "accent": "#527A93",
+      "accentSoft": "#EAF2F7",
+      "border": "#DCE6EC",
+      "badgeBackground": "#F6EAF0",
+      "badgeText": "#875C72",
+      "shadow": "#8197A6"
     },
     "platforms": {
       "tiktok": {
-        "background": "#edf2ed",
-        "foreground": "#48644f"
+        "background": "#F6EAF0",
+        "foreground": "#875C72"
       },
       "youtube": {
-        "background": "#f9eae7",
-        "foreground": "#ac574d"
+        "background": "#EAF2F7",
+        "foreground": "#527A93"
       }
     },
     "typography": {
-      "name": 32,
-      "title": 15,
-      "body": 14,
+      "name": 24,
+      "title": 16,
+      "body": 16,
       "small": 12
     },
     "spacing": {
-      "cardGap": 12,
+      "cardGap": 14,
       "sectionGap": 36,
       "cardPadding": 20
     },
     "featuredRatio": 1.7777777777777777,
     "cardRadius": 24,
-    "contentWidth": 520,
+    "contentWidth": 540,
     "font": "system"
   },
   "destinations": {
@@ -65,12 +66,13 @@
   "resources": {
     "favicon": "favicon.svg",
     "ogGeneration": {
-      "source": "media/featured.svg",
+      "source": "media/onari-instagram.jpg",
       "width": 1200,
       "height": 630,
       "fit": "cover",
       "position": "center"
-    }
+    },
+    "backgroundImage": "media/onari-backgroung.jpeg"
   },
   "copy": {
     "skipLinks": "링크 목록으로 건너뛰기",

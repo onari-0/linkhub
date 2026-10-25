@@ -40,7 +40,7 @@ export function localEditorPlugin(root: string, base: string): Plugin {
     apply: 'serve',
     transformIndexHtml(html, context) {
       if (!context.server || context.path.includes('/__editor')) return html;
-      const toolbar = `<nav data-local-editor-nav aria-label="로컬 편집 도구" style="--color-accent:#70549b;width:calc(100% - 40px);max-width:520px;margin:12px auto 0;display:flex;justify-content:flex-end;font:13px/1.5 system-ui"><a href="${prefix}/" style="display:inline-flex;align-items:center;min-height:40px;padding:8px 16px;border:1px solid #e6dfea;border-radius:999px;background:#fffdfb;color:#70549b">페이지 편집</a></nav>`;
+      const toolbar = `<nav data-local-editor-nav aria-label="로컬 편집 도구" style="--color-accent:#70549b;position:relative;z-index:1;width:calc(100% - 40px);max-width:520px;margin:12px auto 0;display:flex;justify-content:flex-end;font:13px/1.5 system-ui"><a href="${prefix}/" style="display:inline-flex;align-items:center;min-height:40px;padding:8px 16px;border:1px solid #e6dfea;border-radius:999px;background:#fffdfb;color:#70549b">페이지 편집</a></nav>`;
       return html.replace(/<body\b[^>]*>/i, tag => `${tag}${toolbar}`);
     },
     configureServer(server) {

@@ -1,6 +1,8 @@
 # GitHub Pages 배포
 
-## 2026-10-25 실패 원인과 현재 상태
+## 2026-10-25 첫 배포 실패 검토 기록
+
+아래 원격 상태는 첫 배포 실패를 조사한 시점의 기록이다. 이후 콘텐츠 교체 작업에서는 공개 URL과 Pages 설정을 재조회하지 않았다. 최신 로컬 콘텐츠 검증은 [현재 상태](STATUS.md)와 [콘텐츠 검증 기록](verification/linktree-content-qa.json)을 참고한다.
 
 대상 저장소는 [onari-0/linkhub](https://github.com/onari-0/linkhub), 실패한 실행은 [Deploy to GitHub Pages #1](https://github.com/onari-0/linkhub/actions/runs/40181686422/job/121133892697)이다. 커밋 `62122a9`의 build job에서 다음 결과를 확인했다.
 
@@ -39,7 +41,7 @@ git commit -m "Stop tracking dependencies and build output"
 git push origin main
 ```
 
-`package-lock.json`, 소스, 운영 JSON 다섯 파일, `public/media/og-image.png`는 유지한다. Actions는 `npm ci`로 의존성을 설치하고 `dist`를 새로 생성하므로 두 폴더의 Git 추적이 필요하지 않다. 공개 저장소에 커밋한 원본 JSON·이미지는 Pages 산출물의 노출 필터와 별개로 열람 가능하다.
+`package-lock.json`, 소스, 운영 JSON 다섯 파일, `content/site.json`의 `seo.image`가 지정한 출력 파일(현재 `public/media/onari-og.jpg`)는 유지한다. Actions는 `npm ci`로 의존성을 설치하고 `dist`를 새로 생성하므로 두 폴더의 Git 추적이 필요하지 않다. 공개 저장소에 커밋한 원본 JSON·이미지는 Pages 산출물의 노출 필터와 별개로 열람 가능하다.
 
 ## 최초 설정
 
@@ -56,7 +58,7 @@ git remote add origin https://github.com/YOUR-NAME/link-hub.git
 git push -u origin main
 ```
 
-이미 Git을 초기화했다면 `git init`을 다시 할 필요는 없다. `node_modules`, `dist`, `.env`는 올리지 않는다. `package-lock.json`과 `public/media/og-image.png`는 포함한다.
+이미 Git을 초기화했다면 `git init`을 다시 할 필요는 없다. `node_modules`, `dist`, `.env`는 올리지 않는다. `package-lock.json`과 `content/site.json`의 `seo.image`가 지정한 출력 파일(현재 `public/media/onari-og.jpg`)는 포함한다.
 
 3. 저장소 Settings → Pages → Build and deployment → Source를 **GitHub Actions**로 설정한다.
 4. Actions → Deploy to GitHub Pages → Run workflow에서 main을 선택해 실행한다. Pages를 켜기 전 첫 push의 배포가 실패했더라도, 설정을 마친 뒤 다시 실행하면 된다. 이후 main push는 자동 배포된다.

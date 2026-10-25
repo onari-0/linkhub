@@ -1,5 +1,8 @@
 import { useId } from 'react';
 import { seed, selectVariant, changeVariant, type Schema } from './model';
+import { SegmentedControl } from './SegmentedControl';
+
+const booleanOptions = [{ value: 'on', label: '켜짐' }, { value: 'off', label: '꺼짐' }] as const;
 
 const labels: Record<string, string> = {
   name: '이름', caption: '상단 문구', eyebrow: '보조 문구', bio: '소개', avatar: '프로필 이미지', avatarAlt: '프로필 이미지 설명', tags: '관심사', tagsLabel: '관심사 안내',
@@ -8,7 +11,7 @@ const labels: Record<string, string> = {
   brand: '브랜드', keywords: '검색 키워드', sponsored: '광고·제휴', sponsoredLabel: '광고 배지 문구', disclosure: '광고 안내', search: '검색 설정', minItems: '검색창 표시 기준 개수',
   placeholder: '입력 안내', clearLabel: '지우기 버튼 안내', noResults: '결과 없음 안내', resultTemplate: '결과 개수 문구', emptyMessage: '빈 목록 안내', message: '메시지', signature: '서명',
   language: '문서 언어', seo: '검색·공유 정보', theme: '디자인', destinations: '공통 목적지', resources: '이미지·생성 설정', copy: '공유·접근성 문구',
-  colors: '색상', platforms: '플랫폼 색상', typography: '글자 크기', spacing: '간격', background: '배경색', surface: '카드 배경', text: '본문 색', muted: '보조 글자 색', accent: '강조색', accentSoft: '연한 강조색', border: '테두리 색',
+  colors: '색상', platforms: '플랫폼 색상', typography: '글자 크기', spacing: '간격', background: '배경색', backgroundImage: '배경 이미지', surface: '카드 배경', text: '본문 색', muted: '보조 글자 색', accent: '강조색', accentSoft: '연한 강조색', border: '테두리 색',
   badgeBackground: '배지 배경', badgeText: '배지 글자', shadow: '그림자 색', foreground: '아이콘 색', preset: '배경 스타일', font: '글꼴', contentWidth: '콘텐츠 최대 너비', cardRadius: '카드 둥글기', featuredRatio: '큰 이미지 비율',
   cardGap: '카드 간격', sectionGap: '섹션 간격', cardPadding: '카드 여백', body: '본문', small: '작은 글자', favicon: '파비콘', logo: '상단 로고', ogGeneration: '공유 이미지 생성', source: '생성 원본', width: '너비', height: '높이', fit: '맞춤', position: '위치'
 };
@@ -59,11 +62,11 @@ export function SchemaField({ schema, value, onChange, path, assets, depth = 0 }
   }
   const help = schema.description && <p className="field-help" id={helpId}>{schema.description}</p>;
   const a11y = { 'aria-label': path, 'aria-describedby': schema.description ? helpId : undefined };
-  if (schema.type === 'boolean') return <label className="checkbox-field"><input {...a11y} type="checkbox" checked={value === true} onChange={event => onChange(event.target.checked)}/>{value === true ? '켜짐' : '꺼짐'}{help}</label>;
+  if (schema.type === 'boolean') return <div className="boolean-field"><SegmentedControl label={path} describedBy={schema.description ? helpId : undefined} value={value === true ? 'on' : 'off'} options={booleanOptions} onChange={next => onChange(next === 'on')}/>{help}</div>;
   if (schema.enum) return <><select {...a11y} value={String(value ?? '')} onChange={event => onChange(event.target.value)}>{schema.enum.map(option => <option key={option} value={option}>{option}</option>)}</select>{help}</>;
   if (schema.type === 'number' || schema.type === 'integer') return <><input {...a11y} type="number" min={schema.minimum} max={schema.maximum} step={schema.type === 'integer' ? 1 : 'any'} value={typeof value === 'number' ? value : ''} onChange={event => onChange(event.target.value === '' ? undefined : Number(event.target.value))}/>{help}</>;
   const string = typeof value === 'string' ? value : '';
-  const image = /\.(avatar|image|logo|favicon|source)$/.test(path);
+  const image = /\.(avatar|image|logo|favicon|source|backgroundImage)$/.test(path);
   const color = schema.pattern?.startsWith('^#');
   return <>{color && <input className="color-picker" type="color" aria-label={`${path} 색상 선택`} value={/^#[a-f\d]{6}$/i.test(string) ? string : '#000000'} onChange={event => onChange(event.target.value)}/>}{/\.(bio|description|message)$/.test(path) ? <textarea {...a11y} rows={3} maxLength={schema.maxLength} value={string} onChange={event => onChange(event.target.value)}/> : <input {...a11y} type="text" list={image ? id : undefined} maxLength={schema.maxLength} value={string} onChange={event => onChange(event.target.value)}/>} {image && <datalist id={id}>{assets.map(asset => <option key={asset} value={asset}/>)}</datalist>}{help}</>;
 }

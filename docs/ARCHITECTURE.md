@@ -23,6 +23,8 @@ content/{site,profile,links,products,footer}.json
 
 Vite publicDir 자동 복사를 사용하지 않는다. plugin의 generateBundle에서 노출 항목이 참조하는 자산만 emit한다. 개발 서버도 허용된 자산만 제공한다. 숨긴 항목과 목적지 레지스트리는 공개 데이터에서 제외하며, 미사용 파일은 배포하지 않는다. 숨긴 항목의 이미지도 배포 전 검사 대상에서 제외하므로 더 이상 쓰지 않는 파일을 제거할 수 있다.
 
+선택 필드 resources.backgroundImage도 같은 자산 참조 목록에서 검증·배포한다. Page는 assetUrl을 적용한 장식용 고정 배경 레이어를 렌더링하므로 공개 페이지와 iframe 미리보기의 경로를 각각 유지한다. 생략하면 기존 프리셋·색상 배경을 사용한다. 로컬 편집 이동 버튼은 이 고정 배경 위에 표시한다.
+
 이미지는 Sharp로 메타데이터·실제 해석·형식 일치를 검사한다. 40MP/20MB 상한을 적용하고 큰 용량/OG 크기/테마 대비는 경고로 제공한다. 생성 원본은 검증하지만 다른 화면에서 쓰지 않으면 공개하지 않는다. 공유 이미지 생성은 resources.ogGeneration을 읽고 seo.image의 경로·포맷으로 출력한다.
 
 ## 화면과 검색
@@ -44,6 +46,10 @@ title/description/OG/Twitter/canonical/파비콘은 빌드 HTML에 들어간다.
 PR은 check와 루트·하위 경로 빌드, main은 검사 후 Pages 배포를 수행한다. check에는 이미지·콘텐츠·JSON Schema 동기화·타입·린트·회귀 테스트가 포함된다. 동작을 가진 검색 UI는 DOM 테스트로 검증한다.
 
 ## 로컬 편집기
+
+편집기 스타일에서 761px 이상은 뷰포트 높이 안에 헤더·도구와 두 패널을 배치한다. 왼쪽 fieldset은 자체 스크롤하고 오른쪽 iframe은 남은 패널 높이를 사용해 내부 문서를 스크롤한다. 긴 검증 오류·경고 상자는 높이를 제한한다. 760px 이하에서는 기존 단일 열·문서 스크롤을 사용한다. 공개 페이지의 스타일과 데이터 계약에는 이 레이아웃을 적용하지 않는다.
+
+SegmentedControl을 입력 폼/JSON·미리보기 너비·boolean 켜짐/꺼짐 선택에서 재사용한다. native button의 키보드 동작과 fieldset 비활성화를 따르며 aria-pressed로 선택을 알린다. boolean 선택은 기존 true/false와 생략 시 스키마 기본값을 유지한다.
 
 editor/는 공개 페이지의 진입점에서 참조하지 않는 별도 개발 진입점이다. scripts/editor-plugin.ts는 Vite의 apply:serve와 configureServer로 __editor/ HTML·API를 제공한다. configurePreviewServer는 같은 경로와 편집 소스 경로를 404로 차단한다. 정적 빌드 입력은 기존 index.html 하나이며 verify:build가 산출물에서 편집 경로·통신 식별자·파일의 부재도 검사한다.
 
