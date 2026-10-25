@@ -1,0 +1,89 @@
+{
+  "language": "ko",
+  "seo": {
+    "title": "오나리 | 작은 취향을 모으는 곳",
+    "description": "오나리의 Instagram, TikTok, YouTube를 한곳에서 만나보세요.",
+    "image": "media/og-image.png"
+  },
+  "theme": {
+    "preset": "pastel",
+    "colors": {
+      "background": "#f4f0f8",
+      "surface": "#fffdfb",
+      "text": "#3e354b",
+      "muted": "#72667c",
+      "accent": "#70549b",
+      "accentSoft": "#eee5f6",
+      "border": "#e6dfea",
+      "badgeBackground": "#fffdfb",
+      "badgeText": "#514160",
+      "shadow": "#493858"
+    },
+    "platforms": {
+      "tiktok": {
+        "background": "#edf2ed",
+        "foreground": "#48644f"
+      },
+      "youtube": {
+        "background": "#f9eae7",
+        "foreground": "#ac574d"
+      }
+    },
+    "typography": {
+      "name": 32,
+      "title": 15,
+      "body": 14,
+      "small": 12
+    },
+    "spacing": {
+      "cardGap": 12,
+      "sectionGap": 36,
+      "cardPadding": 20
+    },
+    "featuredRatio": 1.7777777777777777,
+    "cardRadius": 24,
+    "contentWidth": 520,
+    "font": "system"
+  },
+  "destinations": {
+    "instagram": {
+      "platform": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/onari.0"
+    },
+    "tiktok": {
+      "platform": "tiktok",
+      "label": "TikTok",
+      "url": "https://www.tiktok.com/@orina1004"
+    },
+    "youtube": {
+      "platform": "youtube",
+      "label": "YouTube",
+      "url": "https://www.youtube.com/@%EA%B0%80%EB%82%9C%EC%9D%84%EC%97%85%EC%9D%80%EB%8D%95%ED%9B%84"
+    }
+  },
+  "resources": {
+    "favicon": "favicon.svg",
+    "ogGeneration": {
+      "source": "media/featured.svg",
+      "width": 1200,
+      "height": 630,
+      "fit": "cover",
+      "position": "center"
+    }
+  },
+  "copy": {
+    "skipLinks": "링크 목록으로 건너뛰기",
+    "shareButton": "페이지 공유하기",
+    "sharePanelTitle": "이 작은 공간을 나눠요",
+    "shareCopy": "주소 복사",
+    "shareNative": "다른 앱으로 공유",
+    "shareCopied": "주소를 복사했어요!",
+    "shareDone": "공유했어요. 고마워요!",
+    "shareManual": "아래 주소를 선택해 복사해 주세요.",
+    "shareUrlLabel": "페이지 주소",
+    "close": "닫기",
+    "newTabSuffix": "새 탭에서 열기",
+    "noScript": "이 페이지의 링크를 보려면 JavaScript를 켜 주세요."
+  }
+}

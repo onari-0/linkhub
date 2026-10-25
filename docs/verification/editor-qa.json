@@ -1,0 +1,150 @@
+{
+  "checkedAt": "2026-10-25T09:12:17.324857+00:00",
+  "project": "/Users/bright/Desktop/link-hub",
+  "automated": {
+    "command": "npm run check",
+    "testFiles": 7,
+    "testsPassed": 52,
+    "contentImagesSchemaTypeLint": "passed"
+  },
+  "builds": [
+    {
+      "base": "/",
+      "siteUrl": "https://example.com/",
+      "result": "passed"
+    },
+    {
+      "base": "/link-hub/",
+      "siteUrl": "https://example.github.io/link-hub/",
+      "result": "passed"
+    },
+    {
+      "base": "/",
+      "siteUrl": null,
+      "result": "passed",
+      "finalDist": true
+    }
+  ],
+  "localEditor": {
+    "sections": [
+      "site",
+      "profile",
+      "links",
+      "products",
+      "footer"
+    ],
+    "formAndJson": "draft preserved across modes and sections",
+    "preview": "validated draft; no file writes",
+    "save": "only changed content JSON files; validation required",
+    "invalidInputs": "URL, duplicate ID, missing image, malformed JSON rejected",
+    "conflict": "409; external disk changes and browser draft preserved",
+    "scope": "loopback dev server only",
+    "api": "same-origin and per-server session header required"
+  },
+  "browser": {
+    "isolatedSaveProject": "/Users/bright/Documents/Codex/2026-10-25/https-linktr-ee-orina0-utm-source/work/editor/browser-qa",
+    "isolatedBase": "/qa/",
+    "profileSave": "confirmed in local content/profile.json",
+    "productSave": "8 fixture products confirmed in isolated content/products.json",
+    "unsavedPreview": "operating content files unchanged",
+    "search": {
+      "query": "문구",
+      "resultCount": 2
+    },
+    "externalLinks": "navigation prevented",
+    "externalFileChange": "draft remained after watcher event; conflicting save rejected",
+    "viewportWidths": [
+      {
+        "viewport": 320,
+        "document": 320
+      },
+      {
+        "viewport": 390,
+        "document": 390
+      },
+      {
+        "viewport": 1280,
+        "document": 1280
+      }
+    ],
+    "rootPreviewImages": "avatar and featured loaded",
+    "consoleErrors": 0
+  },
+  "production": {
+    "editorExcluded": true,
+    "testFixturesExcluded": true,
+    "files": [
+      {
+        "path": "assets/index-BMtFXb8C.js",
+        "bytes": 236562
+      },
+      {
+        "path": "assets/index-DrRMeUq-.css",
+        "bytes": 11655
+      },
+      {
+        "path": "favicon.svg",
+        "bytes": 292
+      },
+      {
+        "path": "index.html",
+        "bytes": 1553
+      },
+      {
+        "path": "media/avatar.svg",
+        "bytes": 819
+      },
+      {
+        "path": "media/featured.svg",
+        "bytes": 2535
+      },
+      {
+        "path": "media/og-image.png",
+        "bytes": 87628
+      }
+    ],
+    "httpChecks": [
+      {
+        "path": "",
+        "status": 200
+      },
+      {
+        "path": "__editor/",
+        "status": 404
+      },
+      {
+        "path": "__editor/api/settings",
+        "status": 404
+      },
+      {
+        "path": "__editor/preview",
+        "status": 404
+      },
+      {
+        "path": "editor/main.tsx",
+        "status": 404
+      }
+    ]
+  },
+  "contentSha256Before": {
+    "site.json": "10e6df1cb3fe4cf70738f2b5436455ee5b71c40732b8a90e488c61509ad02a42",
+    "footer.json": "81b283eddfa38f1ef798e3ad8d32646d1946049aaa41b8073c7180080d160c18",
+    "links.json": "84e6ac6b22f7d3fd87b3cb0308e4c076aa2563a966a0655f5b62bc59eea8c88d",
+    "products.json": "641a8e14f7f9d0ee4d909cb96edf05ec6f8906195434247277fa5d6359c3f0ee",
+    "profile.json": "7b27ba3180f8fed93dced751a59ec76a3e7d902dd5e456f1f660763aeb368041"
+  },
+  "contentSha256After": {
+    "site.json": "10e6df1cb3fe4cf70738f2b5436455ee5b71c40732b8a90e488c61509ad02a42",
+    "footer.json": "81b283eddfa38f1ef798e3ad8d32646d1946049aaa41b8073c7180080d160c18",
+    "links.json": "84e6ac6b22f7d3fd87b3cb0308e4c076aa2563a966a0655f5b62bc59eea8c88d",
+    "products.json": "641a8e14f7f9d0ee4d909cb96edf05ec6f8906195434247277fa5d6359c3f0ee",
+    "profile.json": "7b27ba3180f8fed93dced751a59ec76a3e7d902dd5e456f1f660763aeb368041"
+  },
+  "gitInitialized": false,
+  "newDependencies": false,
+  "serversStopped": [
+    5173,
+    5175,
+    4173
+  ]
+}

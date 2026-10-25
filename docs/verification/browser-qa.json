@@ -1,0 +1,36 @@
+{
+  "metrics320": {
+    "documentWidth": 320,
+    "images": true,
+    "viewport": 320
+  },
+  "metrics390": {
+    "cards": 3,
+    "documentWidth": 390,
+    "images": [
+      {
+        "loaded": true,
+        "path": "/link-hub/media/avatar.svg"
+      },
+      {
+        "loaded": true,
+        "path": "/link-hub/media/featured.svg"
+      }
+    ],
+    "viewport": 390
+  },
+  "metricsDesktop": {
+    "canonical": "https://example.github.io/link-hub/",
+    "documentWidth": 1280,
+    "images": true,
+    "ogImage": "https://example.github.io/link-hub/media/og-image.png",
+    "title": "오나리 | 작은 취향을 모으는 곳",
+    "viewport": 1280
+  },
+  "keyboardResult": {
+    "focusId": "links",
+    "hash": "#links"
+  },
+  "clipboardUi": "주소를 복사했어요!",
+  "nativeShare": "logic tested with mocked capabilities; OS sheet not end-to-end tested"
+}

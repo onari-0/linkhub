@@ -1,0 +1,216 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "default": {},
+  "type": "object",
+  "properties": {
+    "title": {
+      "default": "취향을 나누는 작은 상점",
+      "description": "상품 섹션 제목.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "eyebrow": {
+      "default": "PICKS",
+      "description": "제목 옆의 짧은 보조 문구. 빈 값이면 숨깁니다.",
+      "type": "string",
+      "maxLength": 32
+    },
+    "description": {
+      "default": "눈여겨본 것들을 한곳에 모았어요.",
+      "description": "상품 섹션 소개. 빈 값이면 숨깁니다.",
+      "type": "string",
+      "maxLength": 240
+    },
+    "disclosure": {
+      "default": "광고·제휴 링크가 포함되어 있어요.",
+      "description": "노출 상품에 sponsored 항목이 있을 때 표시할 안내. 빈 값이면 숨깁니다.",
+      "type": "string",
+      "maxLength": 240
+    },
+    "sponsoredLabel": {
+      "default": "광고·제휴",
+      "description": "광고·제휴 상품의 배지 문구.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 24
+    },
+    "search": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "minItems": {
+          "default": 6,
+          "description": "숨김을 제외한 전체 노출 상품이 이 개수 이상이면 검색창을 표시합니다. 기본 6, 범위 1~1000. 검색 결과 수와는 무관합니다.",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "label": {
+          "default": "상품 검색",
+          "description": "검색 입력란의 접근 가능한 이름.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "placeholder": {
+          "default": "상품명, 브랜드, 키워드로 찾아보세요",
+          "description": "검색 입력 전 표시할 안내 문구.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "clearLabel": {
+          "default": "검색어 지우기",
+          "description": "초기화 버튼의 접근 가능한 이름.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "noResults": {
+          "default": "일치하는 상품이 없어요. 다른 검색어로 찾아보세요.",
+          "description": "검색 결과가 0개일 때 표시할 문구. 섹션과 검색창은 유지됩니다.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "resultTemplate": {
+          "default": "{count}개의 상품",
+          "description": "검색 결과 개수 안내. {count}가 실제 결과 수로 바뀌므로 반드시 포함하세요.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "\\{count\\}"
+        }
+      },
+      "additionalProperties": false
+    },
+    "items": {
+      "default": [],
+      "description": "표시 순서대로 정의한 상품 목록. 비었거나 전부 숨김이면 섹션 전체를 숨깁니다.",
+      "maxItems": 1000,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$",
+            "description": "SNS·기본 링크·상품 전체에서 유일한 ID. 제목·주소·순서를 바꿔도 유지합니다.",
+            "examples": [
+              "shop-cushion-01"
+            ]
+          },
+          "destination": {
+            "description": "site.json의 destinations 키를 참조합니다. destination 또는 url 중 하나는 필요합니다.",
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$",
+            "examples": [
+              "shop-cushion-01"
+            ]
+          },
+          "url": {
+            "description": "직접 지정한 HTTPS 주소. destination과 함께 쓰면 공통 주소를 덮어씁니다.",
+            "type": "string",
+            "format": "uri",
+            "examples": [
+              "https://example.com/product/cushion"
+            ]
+          },
+          "platform": {
+            "description": "개별 아이콘. 생략하면 공통 목적지의 platform을 쓰고, 직접 URL만 있으면 website를 씁니다.",
+            "type": "string",
+            "enum": [
+              "instagram",
+              "tiktok",
+              "youtube",
+              "website"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "description": "화면과 검색에 사용하는 상품 이름. 최대 100자."
+          },
+          "brand": {
+            "description": "선택적인 브랜드 이름. 검색 대상에 포함합니다.",
+            "type": "string",
+            "maxLength": 60
+          },
+          "description": {
+            "description": "선택적인 상품 설명. 최대 240자이며 검색 대상에 포함합니다.",
+            "type": "string",
+            "maxLength": 240
+          },
+          "image": {
+            "description": "선택적인 상품 이미지. 생략하면 일반 아이콘을 표시합니다.",
+            "type": "string",
+            "pattern": "^(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_-]+\\.(svg|png|jpe?g|webp|avif)$",
+            "examples": [
+              "media/products/cushion.webp"
+            ]
+          },
+          "imageAlt": {
+            "description": "상품 이미지 설명. 생략하면 장식 이미지로 처리합니다.",
+            "type": "string",
+            "maxLength": 160
+          },
+          "imageFit": {
+            "default": "cover",
+            "description": "cover는 영역을 채우며 일부를 자르고, contain은 원본 전체를 표시합니다.",
+            "type": "string",
+            "enum": [
+              "cover",
+              "contain"
+            ]
+          },
+          "imagePosition": {
+            "default": "center",
+            "description": "이미지 배치·크롭 기준 위치. 중요한 피사체가 잘리면 조정하세요.",
+            "type": "string",
+            "enum": [
+              "center",
+              "top",
+              "bottom",
+              "left",
+              "right"
+            ]
+          },
+          "keywords": {
+            "default": [],
+            "description": "화면에 표시하지 않는 추가 검색어. 최대 30개, 각 32자. 제목·브랜드·설명도 함께 검색합니다.",
+            "maxItems": 30,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            }
+          },
+          "enabled": {
+            "default": true,
+            "description": "false면 상품과 공개 데이터에서 제외하며 검색창 표시 기준에도 포함하지 않습니다.",
+            "type": "boolean"
+          },
+          "sponsored": {
+            "default": true,
+            "description": "광고·제휴 여부. true면 배지와 sponsored 링크 관계를 적용합니다.",
+            "type": "boolean"
+          },
+          "openInNewTab": {
+            "default": true,
+            "description": "상품은 기본값 true로 새 탭에서 엽니다.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "title"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

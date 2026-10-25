@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#bba4ce" opacity=".3"/></pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#7c6193" flood-opacity=".12"/></filter>
+  </defs>
+  <rect width="960" height="540" fill="#e9ddf1"/><rect width="960" height="540" fill="url(#dots)"/>
+  <ellipse cx="490" cy="450" rx="345" ry="45" fill="#d9c8e5" opacity=".6"/>
+  <g transform="translate(80 140) rotate(-9 180 130)" filter="url(#shadow)">
+    <rect width="350" height="260" rx="15" fill="#fffdf6"/><rect x="17" y="17" width="316" height="181" rx="7" fill="#f2e7e5"/>
+    <path d="M48 160q40-65 82-17t80-7 93 20v25H48Z" fill="#bdcfbe"/>
+    <circle cx="257" cy="63" r="25" fill="#f2d88e"/>
+    <text x="175" y="235" text-anchor="middle" fill="#88748e" font-size="20" font-family="Georgia,serif" font-style="italic">collecting happy moments</text>
+    <rect x="129" y="-11" width="88" height="30" rx="2" fill="#c1afd1" opacity=".85"/>
+  </g>
+  <g transform="translate(420 87) rotate(9 160 165)" filter="url(#shadow)" stroke="#675273" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M153 35c22-24 46 17 48 49 34-9 78-4 75 27-2 20-20 36-37 47 32 27 47 63 23 78-18 13-48 2-75-12-7 44-35 77-59 54-13-12-14-39-12-64-42 17-85 15-85-15 0-22 26-47 50-61-28-26-37-66-11-76 20-8 46 13 62 25 2-25 8-43 21-52Z" fill="#fffdf4"/>
+    <path d="M118 152v10m59-10v10" stroke-width="11"/>
+    <path d="M140 180q9 12 20 0" stroke-width="4"/>
+    <ellipse cx="100" cy="176" rx="16" ry="8" fill="#ecc0ce" stroke="none"/><ellipse cx="196" cy="176" rx="16" ry="8" fill="#ecc0ce" stroke="none"/>
+  </g>
+  <g transform="translate(720 353) rotate(12)"><circle r="58" fill="#edc6d3"/><circle r="27" fill="#f5e7ee"/><path d="m-36-27 10 7m36-18 3 11m30 25-11 3m-23 28 6-9m-47-1 10 3" stroke="#fff9ed" stroke-width="5" stroke-linecap="round"/></g>
+  <text x="488" y="407" fill="#695075" font-family="Georgia,serif" font-size="27" font-style="italic">little things, big happiness.</text>
+  <g fill="#9c7bb2"><path d="m803 92 6 20 20 6-20 6-6 20-6-20-20-6 20-6Z"/><path d="m411 62 4 13 13 4-13 4-4 13-4-13-13-4 13-4Z"/><circle cx="843" cy="286" r="5"/><circle cx="357" cy="426" r="5"/></g>
+  <path d="m124 81 18 7m695 370 14 12m-24 4 9 15" stroke="#b49bba" stroke-width="5" stroke-linecap="round"/>
+</svg>

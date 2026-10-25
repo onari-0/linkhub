@@ -1,0 +1,228 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "title": {
+      "default": "나의 작은 연결들",
+      "description": "기본 링크 영역 제목.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "eyebrow": {
+      "default": "LINKS",
+      "description": "제목 옆의 보조 문구. 빈 값이면 숨깁니다.",
+      "type": "string",
+      "maxLength": 32
+    },
+    "emptyMessage": {
+      "default": "새로운 소식을 준비하고 있어요. 곧 만나요!",
+      "description": "노출할 기본 링크가 없을 때 표시할 문구.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "items": {
+      "default": [],
+      "description": "배열 순서대로 표시하는 기본 링크. compact와 featured를 섞을 수 있습니다.",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]*$",
+                "description": "SNS·기본 링크·상품 전체에서 유일한 ID. 제목·주소·순서를 바꿔도 유지합니다.",
+                "examples": [
+                  "shop-cushion-01"
+                ]
+              },
+              "destination": {
+                "description": "site.json의 destinations 키를 참조합니다. destination 또는 url 중 하나는 필요합니다.",
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]*$",
+                "examples": [
+                  "shop-cushion-01"
+                ]
+              },
+              "url": {
+                "description": "직접 지정한 HTTPS 주소. destination과 함께 쓰면 공통 주소를 덮어씁니다.",
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://example.com/product/cushion"
+                ]
+              },
+              "platform": {
+                "description": "개별 아이콘. 생략하면 공통 목적지의 platform을 쓰고, 직접 URL만 있으면 website를 씁니다.",
+                "type": "string",
+                "enum": [
+                  "instagram",
+                  "tiktok",
+                  "youtube",
+                  "website"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80,
+                "description": "카드 제목. 최대 80자."
+              },
+              "description": {
+                "description": "선택적인 카드 설명. 생략하거나 빈 문자열이면 숨깁니다.",
+                "type": "string",
+                "maxLength": 200
+              },
+              "enabled": {
+                "default": true,
+                "description": "false면 화면과 공개 빌드 데이터에서 제외합니다.",
+                "type": "boolean"
+              },
+              "openInNewTab": {
+                "default": false,
+                "description": "true면 새 탭으로 엽니다. 기본 링크는 기본값 false입니다.",
+                "type": "boolean"
+              },
+              "variant": {
+                "type": "string",
+                "const": "compact",
+                "description": "작은 아이콘·썸네일과 문구를 표시하는 카드. label 배지는 지원하지 않습니다."
+              },
+              "image": {
+                "description": "선택적인 작은 썸네일. 생략하면 플랫폼 아이콘을 표시합니다.",
+                "type": "string",
+                "pattern": "^(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_-]+\\.(svg|png|jpe?g|webp|avif)$",
+                "examples": [
+                  "media/products/cushion.webp"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "variant"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]*$",
+                "description": "SNS·기본 링크·상품 전체에서 유일한 ID. 제목·주소·순서를 바꿔도 유지합니다.",
+                "examples": [
+                  "shop-cushion-01"
+                ]
+              },
+              "destination": {
+                "description": "site.json의 destinations 키를 참조합니다. destination 또는 url 중 하나는 필요합니다.",
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]*$",
+                "examples": [
+                  "shop-cushion-01"
+                ]
+              },
+              "url": {
+                "description": "직접 지정한 HTTPS 주소. destination과 함께 쓰면 공통 주소를 덮어씁니다.",
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://example.com/product/cushion"
+                ]
+              },
+              "platform": {
+                "description": "개별 아이콘. 생략하면 공통 목적지의 platform을 쓰고, 직접 URL만 있으면 website를 씁니다.",
+                "type": "string",
+                "enum": [
+                  "instagram",
+                  "tiktok",
+                  "youtube",
+                  "website"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80,
+                "description": "카드 제목. 최대 80자."
+              },
+              "description": {
+                "description": "선택적인 카드 설명. 생략하거나 빈 문자열이면 숨깁니다.",
+                "type": "string",
+                "maxLength": 200
+              },
+              "enabled": {
+                "default": true,
+                "description": "false면 화면과 공개 빌드 데이터에서 제외합니다.",
+                "type": "boolean"
+              },
+              "openInNewTab": {
+                "default": false,
+                "description": "true면 새 탭으로 엽니다. 기본 링크는 기본값 false입니다.",
+                "type": "boolean"
+              },
+              "variant": {
+                "type": "string",
+                "const": "featured",
+                "description": "큰 이미지를 표시하는 카드. image와 imageAlt가 필요합니다."
+              },
+              "label": {
+                "description": "이미지 위 배지 문구. 최대 24자. 빈 값이면 숨깁니다.",
+                "type": "string",
+                "maxLength": 24
+              },
+              "image": {
+                "type": "string",
+                "pattern": "^(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_-]+\\.(svg|png|jpe?g|webp|avif)$",
+                "description": "public 기준 이미지 경로. 선행 / 없이 영문·숫자·하이픈·밑줄로 작성합니다. 실제 파일도 검증합니다.",
+                "examples": [
+                  "media/products/cushion.webp"
+                ]
+              },
+              "imageAlt": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160,
+                "description": "큰 이미지의 내용을 설명하는 대체 텍스트. 최대 160자."
+              },
+              "imageFit": {
+                "default": "cover",
+                "description": "cover는 영역을 채우며 일부를 자르고, contain은 원본 전체를 표시합니다.",
+                "type": "string",
+                "enum": [
+                  "cover",
+                  "contain"
+                ]
+              },
+              "imagePosition": {
+                "default": "center",
+                "description": "이미지 배치·크롭 기준 위치. 중요한 피사체가 잘리면 조정하세요.",
+                "type": "string",
+                "enum": [
+                  "center",
+                  "top",
+                  "bottom",
+                  "left",
+                  "right"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "variant",
+              "image",
+              "imageAlt"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

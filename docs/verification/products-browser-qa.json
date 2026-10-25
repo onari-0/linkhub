@@ -1,0 +1,49 @@
+{
+  "liveEmptySectionHidden": true,
+  "keywordResults": {
+    "count": "2개의 상품",
+    "titles": [
+      "하루 기록 노트",
+      "작은 꽃 책갈피"
+    ]
+  },
+  "emptyResults": {
+    "count": "0개의 상품",
+    "message": "일치하는 상품이 없어요. 다른 검색어로 찾아보세요.",
+    "searchVisible": true,
+    "sectionVisible": true
+  },
+  "restoredProductCount": 8,
+  "product320": {
+    "documentWidth": 320,
+    "visibleCards": 8,
+    "width": 320
+  },
+  "productDesktop": {
+    "documentWidth": 1280,
+    "imagePaths": [
+      "/link-hub/media/avatar.svg",
+      "/link-hub/media/avatar.svg",
+      "/link-hub/media/avatar.svg",
+      "/link-hub/media/avatar.svg",
+      "/link-hub/media/avatar.svg",
+      "/link-hub/media/avatar.svg",
+      "/link-hub/media/avatar.svg",
+      "/link-hub/media/avatar.svg"
+    ],
+    "sections": [
+      "links",
+      "products"
+    ],
+    "sponsoredLinks": true,
+    "width": 1280
+  },
+  "longContentAndBelowThreshold": {
+    "documentWidth": 320,
+    "nameLength": 61,
+    "products": 5,
+    "searchHidden": true,
+    "sectionVisible": true,
+    "width": 320
+  }
+}

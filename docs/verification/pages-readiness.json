@@ -1,0 +1,218 @@
+{
+  "checkedAt": "2026-10-25T08:42:23.309Z",
+  "project": "/Users/bright/Desktop/link-hub",
+  "conclusion": "Local deployment preparation passed; GitHub repository setup and real Pages execution remain unverified.",
+  "environment": {
+    "node": "v24.18.0",
+    "npm": "11.16.0",
+    "localOs": "darwin",
+    "linuxRunnerExecuted": false
+  },
+  "dependencies": {
+    "npmCi": "passed",
+    "auditVulnerabilities": 0,
+    "packageLockSha256": "6c555ba452be44f2edf95177bab7f1a3b72e1f60524477410df4a26ece368baf",
+    "linuxX64OptionalDependencies": [
+      "@img/sharp-linux-x64",
+      "@img/sharp-libvips-linux-x64",
+      "@esbuild/linux-x64",
+      "@rolldown/binding-linux-x64-gnu"
+    ]
+  },
+  "checks": {
+    "contentAndImages": "passed",
+    "jsonSchemaSync": "passed",
+    "typescript": "passed",
+    "eslint": "passed",
+    "testFiles": 7,
+    "testsPassed": 52,
+    "actionlint": {
+      "version": "1.7.12",
+      "workflowFiles": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy.yml"
+      ],
+      "result": "passed"
+    },
+    "pinnedActions": [
+      {
+        "action": "actions/checkout",
+        "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "status": 200,
+        "runtime": "node24"
+      },
+      {
+        "action": "actions/setup-node",
+        "sha": "820762786026740c76f36085b0efc47a31fe5020",
+        "status": 200,
+        "runtime": "node24"
+      },
+      {
+        "action": "actions/configure-pages",
+        "sha": "45bfe0192ca1faeb007ade9deae92b16b8254a0d",
+        "status": 200,
+        "runtime": "node24"
+      },
+      {
+        "action": "actions/upload-pages-artifact",
+        "sha": "fc324d3547104276b827a68afc52ff2a11cc49c9",
+        "status": 200,
+        "runtime": "composite"
+      },
+      {
+        "action": "actions/deploy-pages",
+        "sha": "368f82528645a54fb793d4d04e342629a3f51346",
+        "status": 200,
+        "runtime": "node24"
+      }
+    ]
+  },
+  "builds": [
+    {
+      "base": "/",
+      "siteUrl": "https://example.com/",
+      "build": "passed",
+      "verifyBuild": "passed"
+    },
+    {
+      "base": "/link-hub/",
+      "siteUrl": "https://example.github.io/link-hub/",
+      "build": "passed",
+      "verifyBuild": "passed"
+    },
+    {
+      "base": "/",
+      "siteUrl": null,
+      "build": "passed",
+      "verifyBuild": "passed",
+      "finalDist": true
+    }
+  ],
+  "artifact": {
+    "files": [
+      {
+        "path": "assets/index-BMtFXb8C.js",
+        "bytes": 236562
+      },
+      {
+        "path": "assets/index-DrRMeUq-.css",
+        "bytes": 11655
+      },
+      {
+        "path": "favicon.svg",
+        "bytes": 292
+      },
+      {
+        "path": "index.html",
+        "bytes": 1553
+      },
+      {
+        "path": "media/avatar.svg",
+        "bytes": 819
+      },
+      {
+        "path": "media/featured.svg",
+        "bytes": 2535
+      },
+      {
+        "path": "media/og-image.png",
+        "bytes": 87628
+      }
+    ],
+    "totalBytes": 341044,
+    "symlinks": 0,
+    "hardLinks": 0,
+    "fixtureIdsFound": 0,
+    "localAbsolutePathsFound": 0,
+    "httpSmoke": [
+      {
+        "path": "/assets/index-DrRMeUq-.css",
+        "status": 200,
+        "bytes": 11655,
+        "mime": "text/css"
+      },
+      {
+        "path": "/favicon.svg",
+        "status": 200,
+        "bytes": 292,
+        "mime": "image/svg+xml"
+      },
+      {
+        "path": "/media/avatar.svg",
+        "status": 200,
+        "bytes": 819,
+        "mime": "image/svg+xml"
+      },
+      {
+        "path": "/media/featured.svg",
+        "status": 200,
+        "bytes": 2535,
+        "mime": "image/svg+xml"
+      },
+      {
+        "path": "/media/og-image.png",
+        "status": 200,
+        "bytes": 87628,
+        "mime": "image/png"
+      }
+    ],
+    "smokeServerClosed": true,
+    "httpSmokeNote": "Original pre-editor root smoke record; current subpath production checks are in localEditorVerification."
+  },
+  "git": {
+    "initialized": false,
+    "remoteConfigured": false,
+    "pushed": false
+  },
+  "github": {
+    "settingsInspected": false,
+    "workflowExecuted": false,
+    "publicUrlVerified": false,
+    "remaining": [
+      "Create and connect repository; push main",
+      "Enable Pages Source: GitHub Actions; allow Actions and main environment deployments",
+      "Run deployment workflow; verify public page, assets and metadata"
+    ]
+  },
+  "content": {
+    "productItems": 0,
+    "productSection": "hidden",
+    "profileCopyAndArtwork": "Editable initial content; review before release",
+    "analytics": "inactive"
+  },
+  "servers": {
+    "developmentAndPreview": "stopped",
+    "portsChecked": [
+      5173,
+      5175,
+      4173
+    ]
+  },
+  "updatedAt": "2026-10-25T09:12:17.324857+00:00",
+  "localEditorVerification": {
+    "record": "editor-qa.json",
+    "buildExclusion": "passed",
+    "productionHttp": [
+      {
+        "path": "",
+        "status": 200
+      },
+      {
+        "path": "__editor/",
+        "status": 404
+      },
+      {
+        "path": "__editor/api/settings",
+        "status": 404
+      },
+      {
+        "path": "__editor/preview",
+        "status": 404
+      },
+      {
+        "path": "editor/main.tsx",
+        "status": 404
+      }
+    ]
+  }
+}

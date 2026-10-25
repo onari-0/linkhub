@@ -1,0 +1,16 @@
+{
+  "title": "취향을 나누는 작은 상점",
+  "eyebrow": "PICKS",
+  "description": "눈여겨본 것들을 한곳에 모았어요.",
+  "disclosure": "광고·제휴 링크가 포함되어 있어요.",
+  "sponsoredLabel": "광고·제휴",
+  "search": {
+    "minItems": 6,
+    "label": "상품 검색",
+    "placeholder": "상품명, 브랜드, 키워드로 찾아보세요",
+    "clearLabel": "검색어 지우기",
+    "noResults": "일치하는 상품이 없어요. 다른 검색어로 찾아보세요.",
+    "resultTemplate": "{count}개의 상품"
+  },
+  "items": []
+}

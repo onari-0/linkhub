@@ -1,0 +1,115 @@
+[
+  {
+    "id": "example-product-1",
+    "title": "말랑한 구름 키링",
+    "brand": "작은 구름",
+    "description": "동작 확인을 위한 예시 상품입니다.",
+    "url": "https://example.com/products/1",
+    "keywords": [
+      "키링",
+      "말랑이",
+      "선물"
+    ],
+    "image": "media/avatar.svg",
+    "sponsored": true,
+    "enabled": true
+  },
+  {
+    "id": "example-product-2",
+    "title": "별 모양 파우치",
+    "brand": "별의 조각",
+    "description": "동작 확인을 위한 예시 상품입니다.",
+    "url": "https://example.com/products/2",
+    "keywords": [
+      "파우치",
+      "수납"
+    ],
+    "image": "media/avatar.svg",
+    "sponsored": true,
+    "enabled": true
+  },
+  {
+    "id": "example-product-3",
+    "title": "포근한 미니 인형",
+    "brand": "포근 상점",
+    "description": "동작 확인을 위한 예시 상품입니다.",
+    "url": "https://example.com/products/3",
+    "keywords": [
+      "인형",
+      "치이카와"
+    ],
+    "image": "media/avatar.svg",
+    "sponsored": true,
+    "enabled": true
+  },
+  {
+    "id": "example-product-4",
+    "title": "봄빛 머그컵",
+    "brand": "작은 구름",
+    "description": "동작 확인을 위한 예시 상품입니다.",
+    "url": "https://example.com/products/4",
+    "keywords": [
+      "머그컵",
+      "주방"
+    ],
+    "image": "media/avatar.svg",
+    "sponsored": true,
+    "enabled": true
+  },
+  {
+    "id": "example-product-5",
+    "title": "하루 기록 노트",
+    "brand": "종이 정원",
+    "description": "동작 확인을 위한 예시 상품입니다.",
+    "url": "https://example.com/products/5",
+    "keywords": [
+      "노트",
+      "문구"
+    ],
+    "image": "media/avatar.svg",
+    "sponsored": true,
+    "enabled": true
+  },
+  {
+    "id": "example-product-6",
+    "title": "반짝이는 스티커",
+    "brand": "별의 조각",
+    "description": "동작 확인을 위한 예시 상품입니다.",
+    "url": "https://example.com/products/6",
+    "keywords": [
+      "스티커",
+      "다꾸"
+    ],
+    "image": "media/avatar.svg",
+    "sponsored": true,
+    "enabled": true
+  },
+  {
+    "id": "example-product-7",
+    "title": "몽글몽글 쿠션",
+    "brand": "포근 상점",
+    "description": "동작 확인을 위한 예시 상품입니다.",
+    "url": "https://example.com/products/7",
+    "keywords": [
+      "쿠션",
+      "인테리어"
+    ],
+    "image": "media/avatar.svg",
+    "sponsored": true,
+    "enabled": true
+  },
+  {
+    "id": "example-product-8",
+    "title": "작은 꽃 책갈피",
+    "brand": "종이 정원",
+    "description": "동작 확인을 위한 예시 상품입니다.",
+    "url": "https://example.com/products/8",
+    "keywords": [
+      "책갈피",
+      "문구"
+    ],
+    "image": "media/avatar.svg",
+    "sponsored": true,
+    "enabled": true
+  }
+]

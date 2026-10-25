@@ -1,0 +1,554 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string",
+      "enum": [
+        "ko",
+        "en"
+      ],
+      "description": "HTML 문서 언어. 화면 문구를 자동으로 번역하지는 않습니다."
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "브라우저 제목과 공유 미리보기 제목. 최대 120자."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "검색·공유 미리보기 설명. 최대 300자."
+        },
+        "image": {
+          "type": "string",
+          "pattern": "^(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_-]+\\.(svg|png|jpe?g|webp|avif)$",
+          "description": "공유 이미지 경로. PNG/JPG/WEBP, 권장 크기 1200×630. OG 생성 명령의 출력 경로이기도 합니다.",
+          "examples": [
+            "media/products/cushion.webp"
+          ]
+        },
+        "imageAlt": {
+          "description": "공유 이미지 설명. 생략하면 description을 사용합니다.",
+          "type": "string",
+          "maxLength": 160
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "image"
+      ],
+      "additionalProperties": false,
+      "description": "빌드 HTML에 반영할 검색·공유 메타데이터."
+    },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "preset": {
+          "type": "string",
+          "enum": [
+            "pastel",
+            "paper"
+          ],
+          "description": "pastel은 은은한 배경 효과, paper는 단색 배경을 사용합니다."
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "background": {
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "description": "페이지 전체 배경색.",
+              "examples": [
+                "#70549b"
+              ]
+            },
+            "surface": {
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "description": "카드·입력창 배경색.",
+              "examples": [
+                "#70549b"
+              ]
+            },
+            "text": {
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "description": "주요 글자 색상.",
+              "examples": [
+                "#70549b"
+              ]
+            },
+            "muted": {
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "description": "설명·보조 글자 색상.",
+              "examples": [
+                "#70549b"
+              ]
+            },
+            "accent": {
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "description": "강조·포커스·장식 색상.",
+              "examples": [
+                "#70549b"
+              ]
+            },
+            "accentSoft": {
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "description": "강조 요소의 부드러운 배경색.",
+              "examples": [
+                "#70549b"
+              ]
+            },
+            "border": {
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "description": "카드·입력창·구분선 색상.",
+              "examples": [
+                "#70549b"
+              ]
+            },
+            "badgeBackground": {
+              "default": "#fffdfb",
+              "description": "이미지·광고 배지의 배경색.",
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "examples": [
+                "#70549b"
+              ]
+            },
+            "badgeText": {
+              "default": "#514160",
+              "description": "배지 글자 색상.",
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "examples": [
+                "#70549b"
+              ]
+            },
+            "shadow": {
+              "default": "#493858",
+              "description": "그림자의 기준 색상. 투명도는 스타일에서 적용합니다.",
+              "type": "string",
+              "pattern": "^#[a-fA-F0-9]{6}$",
+              "examples": [
+                "#70549b"
+              ]
+            }
+          },
+          "required": [
+            "background",
+            "surface",
+            "text",
+            "muted",
+            "accent",
+            "accentSoft",
+            "border"
+          ],
+          "additionalProperties": false
+        },
+        "platforms": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "tiktok": {
+              "default": {
+                "background": "#edf2ed",
+                "foreground": "#48644f"
+              },
+              "description": "TikTok 아이콘의 색상 재정의.",
+              "type": "object",
+              "properties": {
+                "background": {
+                  "type": "string",
+                  "pattern": "^#[a-fA-F0-9]{6}$",
+                  "description": "플랫폼 아이콘의 배경색.",
+                  "examples": [
+                    "#70549b"
+                  ]
+                },
+                "foreground": {
+                  "type": "string",
+                  "pattern": "^#[a-fA-F0-9]{6}$",
+                  "description": "플랫폼 아이콘 색상.",
+                  "examples": [
+                    "#70549b"
+                  ]
+                }
+              },
+              "required": [
+                "background",
+                "foreground"
+              ],
+              "additionalProperties": false
+            },
+            "youtube": {
+              "default": {
+                "background": "#f9eae7",
+                "foreground": "#ac574d"
+              },
+              "description": "YouTube 아이콘의 색상 재정의.",
+              "type": "object",
+              "properties": {
+                "background": {
+                  "type": "string",
+                  "pattern": "^#[a-fA-F0-9]{6}$",
+                  "description": "플랫폼 아이콘의 배경색.",
+                  "examples": [
+                    "#70549b"
+                  ]
+                },
+                "foreground": {
+                  "type": "string",
+                  "pattern": "^#[a-fA-F0-9]{6}$",
+                  "description": "플랫폼 아이콘 색상.",
+                  "examples": [
+                    "#70549b"
+                  ]
+                }
+              },
+              "required": [
+                "background",
+                "foreground"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "typography": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "name": {
+              "default": 32,
+              "description": "프로필 이름 크기(px).",
+              "type": "number",
+              "minimum": 24,
+              "maximum": 48
+            },
+            "title": {
+              "default": 15,
+              "description": "카드·상품 제목 크기(px).",
+              "type": "number",
+              "minimum": 13,
+              "maximum": 24
+            },
+            "body": {
+              "default": 14,
+              "description": "본문 크기(px).",
+              "type": "number",
+              "minimum": 12,
+              "maximum": 20
+            },
+            "small": {
+              "default": 12,
+              "description": "보조 문구 크기(px).",
+              "type": "number",
+              "minimum": 11,
+              "maximum": 16
+            }
+          },
+          "additionalProperties": false
+        },
+        "spacing": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "cardGap": {
+              "default": 12,
+              "description": "카드 사이 간격(px).",
+              "type": "number",
+              "minimum": 8,
+              "maximum": 32
+            },
+            "sectionGap": {
+              "default": 36,
+              "description": "기본 링크와 상품 섹션 사이 간격(px).",
+              "type": "number",
+              "minimum": 20,
+              "maximum": 64
+            },
+            "cardPadding": {
+              "default": 20,
+              "description": "기본 카드 내부 좌우 여백(px).",
+              "type": "number",
+              "minimum": 12,
+              "maximum": 28
+            }
+          },
+          "additionalProperties": false
+        },
+        "featuredRatio": {
+          "default": 1.7777777777777777,
+          "description": "이미지형 카드의 가로/세로 비율. 기본 16/9, 허용 범위 1~3.",
+          "type": "number",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "cardRadius": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 40,
+          "description": "카드 모서리 반경(px), 0~40."
+        },
+        "contentWidth": {
+          "type": "integer",
+          "minimum": 320,
+          "maximum": 680,
+          "description": "중앙 콘텐츠의 최대 너비(px), 320~680. 모바일은 화면 너비에 맞춥니다."
+        },
+        "font": {
+          "type": "string",
+          "enum": [
+            "system",
+            "rounded"
+          ],
+          "description": "OS 기본 폰트 또는 둥근 폰트 계열. 실제 글꼴은 기기에 따라 달라집니다."
+        }
+      },
+      "required": [
+        "preset",
+        "colors",
+        "cardRadius",
+        "contentWidth",
+        "font"
+      ],
+      "additionalProperties": false,
+      "description": "사이트 전체 디자인 토큰. SVG 이미지 내부의 색은 이미지에서 별도로 수정합니다."
+    },
+    "resources": {
+      "description": "브랜드 이미지와 공유 이미지 생성 설정.",
+      "default": {},
+      "type": "object",
+      "properties": {
+        "favicon": {
+          "default": "favicon.svg",
+          "description": "브라우저 탭 아이콘. public 기준 경로.",
+          "type": "string",
+          "pattern": "^(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_-]+\\.(svg|png|jpe?g|webp|avif)$",
+          "examples": [
+            "media/products/cushion.webp"
+          ]
+        },
+        "logo": {
+          "description": "페이지 상단 로고. 생략하면 기본 꽃 아이콘을 표시합니다.",
+          "type": "string",
+          "pattern": "^(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_-]+\\.(svg|png|jpe?g|webp|avif)$",
+          "examples": [
+            "media/products/cushion.webp"
+          ]
+        },
+        "ogGeneration": {
+          "description": "npm run media:generate에서 사용합니다. 생략하면 수동 공유 이미지를 사용하며 생성을 건너뜁니다.",
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "pattern": "^(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_-]+\\.(svg|png|jpe?g|webp|avif)$",
+              "description": "공유 이미지 생성 원본. seo.image 출력 경로와 달라야 합니다.",
+              "examples": [
+                "media/products/cushion.webp"
+              ]
+            },
+            "width": {
+              "default": 1200,
+              "description": "출력 너비(px).",
+              "type": "integer",
+              "minimum": 200,
+              "maximum": 2400
+            },
+            "height": {
+              "default": 630,
+              "description": "출력 높이(px).",
+              "type": "integer",
+              "minimum": 200,
+              "maximum": 2400
+            },
+            "fit": {
+              "default": "cover",
+              "description": "cover는 영역을 채우며 일부를 자르고, contain은 원본 전체를 표시합니다.",
+              "type": "string",
+              "enum": [
+                "cover",
+                "contain"
+              ]
+            },
+            "position": {
+              "default": "center",
+              "description": "이미지 배치·크롭 기준 위치. 중요한 피사체가 잘리면 조정하세요.",
+              "type": "string",
+              "enum": [
+                "center",
+                "top",
+                "bottom",
+                "left",
+                "right"
+              ]
+            }
+          },
+          "required": [
+            "source"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "copy": {
+      "description": "공유·복사·키보드 안내 등 공통 UI 문구.",
+      "default": {},
+      "type": "object",
+      "properties": {
+        "skipLinks": {
+          "default": "링크 목록으로 건너뛰기",
+          "description": "키보드 사용자가 기본 링크로 이동하는 건너뛰기 문구.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "shareButton": {
+          "default": "페이지 공유하기",
+          "description": "공유 버튼의 접근 가능한 이름.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "sharePanelTitle": {
+          "default": "이 작은 공간을 나눠요",
+          "description": "공유 방법 선택 패널의 제목.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "shareCopy": {
+          "default": "주소 복사",
+          "description": "주소 복사 동작 문구.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "shareNative": {
+          "default": "다른 앱으로 공유",
+          "description": "브라우저의 네이티브 공유 동작 문구.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "shareCopied": {
+          "default": "주소를 복사했어요!",
+          "description": "클립보드 복사 성공 안내.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "shareDone": {
+          "default": "공유했어요. 고마워요!",
+          "description": "네이티브 공유 성공 안내.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "shareManual": {
+          "default": "아래 주소를 선택해 복사해 주세요.",
+          "description": "공유·복사 API 사용이 어려울 때 수동 복사를 안내합니다.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "shareUrlLabel": {
+          "default": "페이지 주소",
+          "description": "수동 복사 입력란의 이름.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "close": {
+          "default": "닫기",
+          "description": "공통 닫기 동작 문구.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "newTabSuffix": {
+          "default": "새 탭에서 열기",
+          "description": "새 탭 링크의 접근 가능한 이름에 덧붙일 문구.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "noScript": {
+          "default": "이 페이지의 링크를 보려면 JavaScript를 켜 주세요.",
+          "description": "JavaScript가 꺼진 브라우저에 표시할 안내.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        }
+      },
+      "additionalProperties": false
+    },
+    "destinations": {
+      "default": {},
+      "description": "여러 SNS·카드·상품에서 재사용할 공통 목적지. 각 항목의 destination에 이 객체의 키를 작성합니다.",
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$",
+        "description": "SNS·기본 링크·상품 전체에서 유일한 ID. 제목·주소·순서를 바꿔도 유지합니다.",
+        "examples": [
+          "shop-cushion-01"
+        ]
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "사용자 이름·비밀번호가 포함되지 않은 HTTPS 목적지 주소.",
+            "examples": [
+              "https://example.com/product/cushion"
+            ]
+          },
+          "platform": {
+            "type": "string",
+            "enum": [
+              "instagram",
+              "tiktok",
+              "youtube",
+              "website"
+            ],
+            "description": "링크에 표시할 아이콘 종류. 일반 웹사이트는 website를 사용합니다."
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60,
+            "description": "공통 목적지를 구분하는 이름. 화면 항목의 title·label은 각각 따로 정의합니다."
+          }
+        },
+        "required": [
+          "url",
+          "platform",
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "language",
+    "seo",
+    "theme"
+  ],
+  "additionalProperties": false
+}

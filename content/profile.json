@@ -1,0 +1,36 @@
+{
+  "name": "오나리",
+  "eyebrow": "a little corner of my world",
+  "bio": "작고 귀여운 것들을 좋아해요.",
+  "avatar": "media/avatar.svg",
+  "tags": [
+    "치이카와",
+    "인형뽑기",
+    "말랑이"
+  ],
+  "tagsLabel": "관심사",
+  "caption": "a collection of little joys",
+  "socials": {
+    "label": "SNS 바로가기",
+    "items": [
+      {
+        "id": "social-instagram",
+        "label": "Instagram",
+        "enabled": true,
+        "destination": "instagram"
+      },
+      {
+        "id": "social-tiktok",
+        "label": "TikTok",
+        "enabled": true,
+        "destination": "tiktok"
+      },
+      {
+        "id": "social-youtube",
+        "label": "YouTube",
+        "enabled": true,
+        "destination": "youtube"
+      }
+    ]
+  }
+}

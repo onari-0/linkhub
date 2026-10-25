@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "default": true,
+      "description": "false면 푸터 전체를 숨깁니다.",
+      "type": "boolean"
+    },
+    "message": {
+      "description": "푸터 메시지. 빈 값이면 해당 줄을 숨깁니다.",
+      "type": "string",
+      "maxLength": 160
+    },
+    "signature": {
+      "description": "짧은 서명. 빈 값이면 해당 줄을 숨깁니다.",
+      "type": "string",
+      "maxLength": 120
+    }
+  },
+  "additionalProperties": false
+}
